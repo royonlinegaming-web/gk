@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="comfort-night">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ইতিহাসের উপাদান (Sources of History) — বিগত বছরের প্রশ্নাবলী ও বিশ্লেষণাত্মক অনুশীলন" />
+  <meta name="color-scheme" content="dark light" />
+  <title>ইতিহাসের উপাদান — Sources of History</title>
+
+  <!-- Initial Theme, 0.5px Font-Size & Line-Space Guard (Prevents FOUC) -->
+  <script>
+    (() => {
+      try {
+        const validThemes = ['comfort-night', 'comfort-day', 'light', 'dark-night'];
+        const savedTheme = localStorage.getItem('bn_mcq_theme');
+        if (savedTheme && validThemes.includes(savedTheme)) {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+        const savedSize = parseFloat(localStorage.getItem('bn_mcq_fontsize'));
+        if (!Number.isNaN(savedSize) && savedSize >= 10 && savedSize <= 18) {
+          const snapped = Math.round(savedSize * 2) / 2;
+          document.documentElement.style.fontSize = snapped + 'px';
+        } else {
+          document.documentElement.style.fontSize = '14px';
+        }
+        const validLineSpaces = ['1.50', '1.65', '1.75', '1.90', '2.00'];
+        const savedLineSpace = localStorage.getItem('bn_mcq_linegap');
+        if (savedLineSpace && validLineSpaces.includes(savedLineSpace)) {
+          document.documentElement.style.setProperty('--reader-line-height', savedLineSpace);
+        }
+      } catch {
+        document.documentElement.style.fontSize = '14px';
+      }
+    })();
+  </script>
+
+  <!-- Google Fonts: Hind Siliguri (Bengali) & Inter (Latin) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6.5.1 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Inline SVG Favicon Harmonized with Soft Slate & Periwinkle/Sky Blue (Zero Gold/Sand/Pink) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1d24'/%3E%3Crect x='4' y='4' width='56' height='56' rx='11' fill='none' stroke='%238aa4e8' stroke-width='2.5'/%3E%3Cpath d='M20 18h20a4 4 0 0 1 4 4v22a2 2 0 0 1-2 2H22a4 4 0 0 0-4 4V20a2 2 0 0 1 2-2z' fill='none' stroke='%23edf0f7' stroke-width='3' stroke-linejoin='round'/%3E%3Cline x1='25' y1='26' x2='37' y2='26' stroke='%235eb2e6' stroke-width='2.5' stroke-linecap='round'/%3E%3Cline x1='25' y1='33' x2='34' y2='33' stroke='%238aa4e8' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" />
+
+  <!-- Main MCQ Stylesheet -->
+  <link rel="stylesheet" href="../../../css/mcq-style.css" />
+</head>
+<body>
+  <!-- Screen-Reader Live Announcements -->
+  <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Floating Toast Feedback -->
+  <div id="app-toast" class="app-toast" role="status" aria-live="polite">
+    <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+    <span id="app-toast-text"></span>
+  </div>
+
+  <!-- ========================================================================
+       1. STICKY TOP HEADER & MATHEMATICALLY CENTERED EDITORIAL MASTHEAD
+       ======================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <a href="../../../index.html" class="home-btn" id="home-btn" title="Home" aria-label="Home">
+          <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
+          <span>Home</span>
+        </a>
+      </div>
+
+      <div class="header-center">
+        <h1 class="main-title-bn">ইতিহাসের উপাদান</h1>
+        <div class="masthead-sub-row">
+          <span class="masthead-ornament left" aria-hidden="true"></span>
+          <div class="sub-title-en">Sources of History</div>
+          <span class="masthead-ornament right" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button
+          type="button"
+          class="icon-btn"
+          id="menu-open-btn"
+          title="মেনু খুলুন"
+          aria-label="মেনু খুলুন"
+          aria-expanded="false"
+          aria-controls="side-drawer"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span class="menu-badge-pill" id="header-unanswered-badge" aria-hidden="true">14</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="reading-progress-track" aria-hidden="true">
+      <div class="reading-progress-fill" id="reading-progress-fill"></div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. SMART STICKY SEARCH BAR WITH MATCH COUNTER & UP/DOWN ARROWS
+       ======================================================================== -->
+  <div class="search-bar-wrapper" id="search-bar-wrapper">
+    <div class="search-bar-inner">
+      <div class="search-input-box" id="search-input-box">
+        <span class="search-icon" aria-hidden="true">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="অনুসন্ধান করুন..."
+          autocomplete="off"
+          aria-label="প্রশ্ন, অপশন বা ব্যাখ্যা খুঁজুন"
+        />
+        <div class="search-meta">
+          <span class="kbd-hint" id="search-kbd-hint">/</span>
+          <div class="search-nav-controls" id="search-nav-controls" role="group" aria-label="Search match navigation">
+            <span class="search-match-count" id="search-match-count" aria-live="polite">0/0</span>
+            <button type="button" class="search-nav-btn" id="search-prev-btn" title="পূর্ববর্তী মিল (Shift+Enter)" aria-label="Previous match" disabled>
+              <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-nav-btn" id="search-next-btn" title="পরবর্তী মিল (Enter)" aria-label="Next match" disabled>
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <button type="button" class="search-clear-btn" id="search-clear-btn" title="মুছে ফেলুন" aria-label="Clear search">×</button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="action-pill-btn"
+        id="btn-toggle-all-explains"
+        aria-pressed="false"
+        title="সব ব্যাখ্যা দেখুন / লুকান"
+      >
+        <i id="icon-toggle-all" class="fa-solid fa-eye" aria-hidden="true"></i>
+        <span class="btn-label" id="text-toggle-all">সব ব্যাখ্যা দেখুন</span>
+      </button>
+
+      <button
+        type="button"
+        class="action-pill-btn"
+        id="btn-shuffle"
+        title="প্রশ্ন ও অপশন শাফেল করুন"
+      >
+        <i class="fa-solid fa-shuffle" aria-hidden="true"></i>
+        <span class="btn-label">শাফেল</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       3. STYLISH MULTI-COLORED SLIDE-OUT DRAWER (BASHISTA ROY)
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="side-drawer" id="side-drawer" aria-label="BASHISTA ROY মেনু" aria-hidden="true" tabindex="-1">
+    <!-- Gradient-Free 5-Segment Cool Botanical Top Accent Bar -->
+    <div class="drawer-top-segments" aria-hidden="true">
+      <span class="seg-indigo"></span>
+      <span class="seg-sky"></span>
+      <span class="seg-teal"></span>
+      <span class="seg-lavender"></span>
+      <span class="seg-sage"></span>
+    </div>
+
+    <!-- Stylish BASHISTA ROY Identity Header -->
+    <div class="drawer-header">
+      <div class="brand-identity">
+        <span class="brand-monogram-outer" aria-hidden="true">
+          <span class="brand-monogram-inner">BR</span>
+        </span>
+        <div class="brand-name-wrap">
+          <span class="brand-name">BASHISTA ROY</span>
+          <div class="brand-accent-bar" aria-hidden="true">
+            <span class="brand-bar-line"></span>
+            <span class="brand-bar-short"></span>
+            <span class="brand-bar-dot"></span>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="drawer-close-btn" id="drawer-close-btn" title="বন্ধ করুন" aria-label="Close drawer">×</button>
+    </div>
+
+    <!-- 2-Tab Navigation Bar -->
+    <div class="drawer-tabs-bar" role="tablist" aria-label="মেনু বিভাগসমূহ">
+      <button
+        type="button"
+        role="tab"
+        id="tab-toc"
+        class="drawer-tab-btn active"
+        aria-selected="true"
+        aria-controls="panel-toc"
+        data-drawer-tab="toc"
+      >
+        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+        <span>সূচিপত্র</span>
+      </button>
+
+      <button
+        type="button"
+        role="tab"
+        id="tab-palette"
+        class="drawer-tab-btn"
+        aria-selected="false"
+        aria-controls="panel-palette"
+        data-drawer-tab="palette"
+      >
+        <i class="fa-solid fa-list-ol" aria-hidden="true"></i>
+        <span>প্রশ্ন তালিকা</span>
+        <span class="tab-count-pill" id="tab-unanswered-badge">14</span>
+      </button>
+    </div>
+
+    <div class="drawer-body custom-scroll">
+      <!-- Tab 1: সূচিপত্র (Multi-Colored Categories + Eye-Comfort Reading Controls) -->
+      <div id="panel-toc" class="drawer-tab-panel" role="tabpanel" aria-labelledby="tab-toc">
+        <div id="category-filter-container" class="filter-nav-group"></div>
+
+        <hr class="drawer-divider" />
+
+        <div class="controls-panel">
+          <!-- Mode Switcher: 4 Horizontal Pills with Original Inline SVG Icons -->
+          <div class="control-block">
+            <div class="control-top">
+              <span class="control-label-wrap">
+                <span class="ctrl-mini-icon mode-icon" aria-hidden="true"><i class="fa-solid fa-circle-half-stroke"></i></span>
+                <span>Mode</span>
+              </span>
+              <span class="value-pill mode-pill" id="theme-mode-display">Soft</span>
+            </div>
+            <div class="theme-mode-grid" id="theme-mode-grid" role="group" aria-label="Reading Mode">
+              <button type="button" class="theme-pill active" data-theme-val="comfort-night" aria-pressed="true" title="Soft — Calm Low-Glare Slate Dusk">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+                </svg>
+                <span>Soft</span>
+              </button>
+              <button type="button" class="theme-pill" data-theme-val="comfort-day" aria-pressed="false" title="Mist — Low Brightness + Blue-Light Filter">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                </svg>
+                <span>Mist</span>
+              </button>
+              <button type="button" class="theme-pill" data-theme-val="light" aria-pressed="false" title="Day — Soft Matte Sage-Stone & Deep Teal">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+                </svg>
+                <span>Day</span>
+              </button>
+              <button type="button" class="theme-pill" data-theme-val="dark-night" aria-pressed="false" title="Night — Deep Matte Obsidian & Ice-Sky Blue">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                </svg>
+                <span>Night</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Font Size Control (0.5px precision steps: 10 to 18) -->
+          <div class="control-block">
+            <div class="control-top">
+              <label for="font-size-slider" class="control-label-wrap">
+                <span class="ctrl-mini-icon font-icon" aria-hidden="true"><i class="fa-solid fa-text-height"></i></span>
+                <span>Font Size</span>
+              </label>
+              <span class="value-pill font-pill" id="font-size-display">14px</span>
+            </div>
+            <div class="font-control-row">
+              <button type="button" class="step-btn" id="font-dec-btn" aria-label="Decrease font size by 0.5px">−</button>
+              <input type="range" id="font-size-slider" min="10" max="18" step="0.5" value="14" />
+              <button type="button" class="step-btn" id="font-inc-btn" aria-label="Increase font size by 0.5px">+</button>
+            </div>
+          </div>
+
+          <!-- Line Space Control -->
+          <div class="control-block">
+            <div class="control-top">
+              <span class="control-label-wrap">
+                <span class="ctrl-mini-icon line-icon" aria-hidden="true"><i class="fa-solid fa-align-justify"></i></span>
+                <span>Line Space</span>
+              </span>
+              <span class="value-pill line-pill-val" id="line-space-display">1.65</span>
+            </div>
+            <div class="line-space-grid" id="line-space-grid" role="group" aria-label="Line Space">
+              <button type="button" class="line-pill" data-lh="1.50">1.50</button>
+              <button type="button" class="line-pill active" data-lh="1.65">1.65</button>
+              <button type="button" class="line-pill" data-lh="1.75">1.75</button>
+              <button type="button" class="line-pill" data-lh="1.90">1.90</button>
+              <button type="button" class="line-pill" data-lh="2.00">2.00</button>
+            </div>
+          </div>
+
+          <!-- Reset Progress Button -->
+          <button type="button" class="reset-btn" id="btn-reset-progress">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            <span>সকল উত্তর পুনরায় শুরু করুন (Reset)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 2: প্রশ্ন তালিকা (CORRECT | WRONG | REST + 3-Segment Bar + Palette Grid) -->
+      <div id="panel-palette" class="drawer-tab-panel" role="tabpanel" aria-labelledby="tab-palette" hidden>
+        <div class="score-panel">
+          <div class="score-strip">
+            <div class="score-pill correct">
+              <span class="score-label">
+                <span class="score-dot"><i class="fa-solid fa-check" aria-hidden="true"></i></span>
+                CORRECT
+              </span>
+              <span class="score-num" id="counter-correct">0</span>
+            </div>
+
+            <div class="score-pill wrong">
+              <span class="score-label">
+                <span class="score-dot"><i class="fa-solid fa-xmark" aria-hidden="true"></i></span>
+                WRONG
+              </span>
+              <span class="score-num" id="counter-wrong">0</span>
+            </div>
+
+            <div class="score-pill rest">
+              <span class="score-label">
+                <span class="score-dot"><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i></span>
+                REST
+              </span>
+              <span class="score-num" id="counter-pending">14</span>
+            </div>
+          </div>
+
+          <div class="score-progress-track" aria-hidden="true">
+            <div class="score-progress-correct" id="score-bar-correct"></div>
+            <div class="score-progress-wrong" id="score-bar-wrong"></div>
+            <div class="score-progress-rest" id="score-bar-rest"></div>
+          </div>
+        </div>
+
+        <div class="palette-grid" id="palette-grid"></div>
+
+        <button type="button" class="reset-btn" id="btn-reset-progress-palette">
+          <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+          <span>সকল উত্তর পুনরায় শুরু করুন (Reset)</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       4. MAIN QUESTION FEED
+       ======================================================================== -->
+  <main class="main-container" id="top">
+    <div id="filter-indicator" class="filter-indicator hidden">
+      <span class="filter-indicator-left">
+        <span class="filter-dot" id="filter-indicator-dot"></span>
+        <span>বর্তমান ক্যাটাগরি: <strong id="filter-category-name"></strong></span>
+      </span>
+      <button type="button" class="filter-reset-link" id="btn-show-all-categories">সকল প্রশ্ন দেখুন</button>
+    </div>
+
+    <section id="questions-feed" class="questions-feed" aria-label="প্রশ্নাবলি তালিকা"></section>
+
+    <div id="empty-state" class="empty-state hidden">
+      <div class="empty-icon-box" aria-hidden="true">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <h3 class="empty-title">কোনো প্রশ্ন খুঁজে পাওয়া যায়নি</h3>
+      <p class="empty-desc">অন্য কোনো কি-ওয়ার্ড লিখে অনুসন্ধান করুন অথবা সূচিপত্র থেকে ক্যাটাগরি পরিবর্তন করুন।</p>
+      <button type="button" class="empty-reset-btn" id="btn-clear-filters-empty">সব ফিল্টার মুছুন</button>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       5. CLEAN, SIMPLE FOOTER WITH ATTRACTIVE EDITORIAL DIVIDER LINE
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote">সাফল্য পাওয়ার সবচেয়ে বড় রহস্য হলো ধৈর্য্য</p>
+      <div class="footer-divider" aria-hidden="true">
+        <span class="footer-divider-line left"></span>
+        <span class="footer-divider-dot"></span>
+        <span class="footer-divider-gem"></span>
+        <span class="footer-divider-dot"></span>
+        <span class="footer-divider-line right"></span>
+      </div>
+      <p class="footer-credit">General Knowledge Portal <span class="footer-dot" aria-hidden="true">•</span> Design &amp; Created by <span class="footer-author">Bashista Roy</span></p>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Button -->
+  <button type="button" class="back-to-top-btn" id="back-to-top-btn" title="উপরে যান" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- ========================================================================
+       6. EXTERNAL CHAPTER NOTES DATA & REUSABLE MCQ ENGINE
+       ======================================================================== -->
+  <script src="./chapter_2_sources_of_history.js"></script>
+  <script src="../../../js/mcq-engine.js"></script>
+</body>
+</html>

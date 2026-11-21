@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>জ্ঞানানন্ত পাঠশালা - Limitless Learning • Endless Wisdom</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            latin: ['"Inter"', 'sans-serif'],
+            display: ['"Cinzel"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Google Fonts: Cinzel, Hind Siliguri & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon Link -->
+  <link rel="icon" type="image/png" href="History/image/favicon.png">
+
+  <!-- Font Awesome 6.5.1 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. EYE-COMFORT TWILIGHT SLATE-INDIGO THEME & LAYOUT TOKENS
+       ========================================================================== */
+    :root {
+      color-scheme: dark;
+      --header-height: 84px;
+      --search-height: 50px;
+    }
+
+    html {
+      scroll-padding-top: calc(var(--header-height) + var(--search-height) + 14px);
+    }
+
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 14px;
+      background-color: #131c2e;
+      color: #f1f5f9;
+      -webkit-tap-highlight-color: transparent;
+      overflow-anchor: none;
+      overflow-x: hidden;
+    }
+
+    /* Non-fixed subtle radial glow layer (GPU friendly, zero scroll jank) */
+    .ambient-backdrop {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(99, 102, 241, 0.14), transparent 45%),
+        radial-gradient(circle at 88% 8%, rgba(245, 158, 11, 0.10), transparent 42%);
+    }
+
+    .font-latin {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+
+    /* ==========================================================================
+       2. PROPORTIONALLY SCALED EDITORIAL HEADER MASTHEAD
+       ========================================================================== */
+    .site-header {
+      height: var(--header-height);
+    }
+
+    .header-grid {
+      display: grid;
+      grid-template-columns: minmax(48px, 1fr) auto minmax(48px, 1fr);
+      align-items: center;
+      gap: 12px;
+      height: 100%;
+    }
+
+    .header-left {
+      justify-self: start;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-center {
+      justify-self: center;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .header-right {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+    }
+
+    .main-title-bn {
+      margin: 0 auto;
+      text-align: center;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: 0.015em;
+      white-space: nowrap;
+      color: #edf0f7;
+      text-shadow: 0 1px 0 rgba(9, 11, 17, 0.65);
+    }
+
+    .masthead-sub-row {
+      margin: 4px auto 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      max-width: 100%;
+    }
+
+    .masthead-ornament {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .masthead-ornament::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 1px;
+      background-color: rgba(182, 191, 210, 0.25);
+    }
+
+    .masthead-ornament::after {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 5px;
+      background-color: #55bfa0;
+      transform: rotate(45deg);
+    }
+
+    .masthead-ornament.right {
+      flex-direction: row-reverse;
+    }
+
+    .sub-title-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #9db4f0;
+      background-color: #252a38;
+      border: 1px solid rgba(138, 164, 232, 0.30);
+      padding: 3px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       3. SCULPTURAL EDITORIAL DRAWER BRAND NAME (BASHISTA ROY)
+       ========================================================================== */
+    .drawer-brand-name {
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.11em;
+      line-height: 1.15;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.34em;
+      user-select: none;
+      text-shadow: 0 1px 10px rgba(251, 191, 36, 0.22);
+    }
+
+    .drawer-brand-word {
+      display: inline-flex;
+      align-items: baseline;
+    }
+
+    .drawer-brand-initial {
+      font-size: 1.16em;
+      font-weight: 700;
+      color: #fbbf24;
+      line-height: 1;
+    }
+
+    .drawer-brand-first {
+      color: #f8fafc;
+    }
+
+    .drawer-brand-last {
+      color: #fde68a;
+    }
+
+    @media (min-width: 640px) {
+      .drawer-brand-name {
+        font-size: 1.18rem;
+      }
+    }
+
+    @media (max-width: 359px) {
+      .drawer-brand-name {
+        font-size: 0.94rem;
+        letter-spacing: 0.075em;
+      }
+    }
+
+    /* ==========================================================================
+       4. SMART STICKY SEARCH BAR WITH MATCH COUNTER & UP/DOWN ARROWS
+       ========================================================================== */
+    .search-bar-wrapper {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 25;
+      height: var(--search-height);
+      background-color: rgba(25, 36, 59, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid #2b3b59;
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.22s ease, opacity 0.18s ease;
+    }
+
+    .search-bar-wrapper.search-hidden {
+      transform: translateY(-105%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .search-bar-inner {
+      max-width: 896px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-input-box {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 11px;
+      color: #94a3b8;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 36px;
+      padding: 0 36px 0 32px;
+      border-radius: 9px;
+      border: 1px solid #2b3b59;
+      background-color: #131c2e;
+      color: #f1f5f9;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.16s ease, padding-right 0.16s ease;
+    }
+
+    .search-input-box.has-query .search-input {
+      padding-right: 148px;
+      border-color: rgba(138, 164, 232, 0.40);
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-input:focus {
+      border-color: #8aa4e8;
+    }
+
+    .search-meta {
+      position: absolute;
+      right: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .kbd-hint {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: #94a3b8;
+      background-color: #253352;
+      border: 1px solid #2b3b59;
+      padding: 1px 6px;
+      border-radius: 4px;
+      line-height: 1.4;
+      pointer-events: none;
+    }
+
+    /* Match Counter & Up/Down Arrows Cluster */
+    .search-nav-controls {
+      display: none;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .search-nav-controls.visible {
+      display: inline-flex;
+    }
+
+    .search-match-count {
+      font-family: 'Inter', sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: #8aa4e8;
+      background-color: rgba(138, 164, 232, 0.13);
+      border: 1px solid rgba(138, 164, 232, 0.30);
+      padding: 2px 6px;
+      border-radius: 6px;
+      line-height: 1.25;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .search-match-count.is-zero {
+      color: #94a3b8;
+      background-color: #253352;
+      border-color: #2b3b59;
+    }
+
+    .search-nav-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      border: 1px solid #2b3b59;
+      background-color: #19243b;
+      color: #f1f5f9;
+      font-size: 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.14s ease, color 0.14s ease, background-color 0.14s ease, transform 0.1s ease;
+    }
+
+    .search-nav-btn:hover:not(:disabled) {
+      border-color: #8aa4e8;
+      background-color: rgba(138, 164, 232, 0.13);
+      color: #8aa4e8;
+    }
+
+    .search-nav-btn:active:not(:disabled) {
+      transform: scale(0.93);
+    }
+
+    .search-nav-btn:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+    }
+
+    .search-clear-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: none;
+      background-color: #253352;
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.14s ease, color 0.14s ease;
+    }
+
+    .search-clear-btn.visible {
+      display: inline-flex;
+    }
+
+    .search-clear-btn:hover {
+      color: #d96c60;
+      background-color: #312120;
+    }
+
+    /* Search Match Highlights & Active Focused Match */
+    mark.search-hl {
+      background-color: rgba(94, 178, 230, 0.24);
+      color: #eef4fa;
+      padding: 0 2.5px;
+      border-radius: 3px;
+      font-weight: 600;
+      scroll-margin-top: calc(var(--header-height) + var(--search-height) + 40px);
+      transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    mark.search-hl.active-match {
+      background-color: #5eb2e6;
+      color: #0f141c;
+      box-shadow: 0 0 0 2.5px rgba(94, 178, 230, 0.48);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       5. MATCHED EDITORIAL FOOTER & TAPERED DIVIDER LINE
+       ========================================================================== */
+    .site-footer {
+      flex-shrink: 0;
+      width: 100%;
+      margin-top: auto;
+      border-top: 1px solid #2b3b59;
+      background-color: #19243b;
+      padding: 22px 16px 26px;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .footer-quote {
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.55;
+      letter-spacing: 0.01em;
+      color: #e2e5ed;
+    }
+
+    .footer-divider {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin: 2px 0;
+    }
+
+    .footer-divider-line {
+      display: block;
+      width: 68px;
+      height: 1.5px;
+      border-radius: 999px;
+    }
+
+    .footer-divider-line.left {
+      background: linear-gradient(90deg, transparent, rgba(138, 164, 232, 0.35), #8aa4e8);
+    }
+
+    .footer-divider-line.right {
+      background: linear-gradient(270deg, transparent, rgba(138, 164, 232, 0.35), #8aa4e8);
+    }
+
+    .footer-divider-dot {
+      display: block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background-color: #8aa4e8;
+      opacity: 0.72;
+    }
+
+    .footer-divider-gem {
+      display: block;
+      width: 5.5px;
+      height: 5.5px;
+      background-color: #55bfa0;
+      transform: rotate(45deg);
+      box-shadow: 0 0 0 2.5px rgba(138, 164, 232, 0.14);
+    }
+
+    .footer-credit {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.015em;
+      color: #94a3b8;
+    }
+
+    .footer-dot {
+      color: #8aa4e8;
+      margin: 0 4px;
+    }
+
+    .footer-author {
+      color: #8aa4e8;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       6. DRAWER, SCROLLBAR & PERFORMANCE OPTIMIZATIONS
+       ========================================================================== */
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background-color: rgba(148, 163, 184, 0.28);
+      border-radius: 9999px;
+    }
+
+    #slide-menu {
+      will-change: transform;
+    }
+    #menu-backdrop {
+      will-change: opacity;
+    }
+
+    .subject-panel[hidden] {
+      display: none !important;
+    }
+    .subject-panel {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 420px;
+    }
+
+    /* ==========================================================================
+       7. RESPONSIVE MOBILE OPTIMIZATION (320px TO DESKTOP)
+       ========================================================================== */
+    @media (max-width: 640px) {
+      :root {
+        --header-height: 72px;
+        --search-height: 46px;
+      }
+
+      .header-grid {
+        grid-template-columns: minmax(44px, 1fr) auto minmax(44px, 1fr);
+        gap: 6px;
+      }
+
+      .main-title-bn {
+        font-size: 20px;
+      }
+
+      .masthead-sub-row {
+        gap: 6px;
+        margin-top: 3px;
+      }
+
+      .masthead-ornament::before {
+        width: 12px;
+      }
+
+      .masthead-ornament::after {
+        width: 4.5px;
+        height: 4.5px;
+      }
+
+      .sub-title-en {
+        font-size: 9.5px;
+        padding: 2px 9px;
+        letter-spacing: 0.055em;
+      }
+
+      .kbd-hint {
+        display: none;
+      }
+
+      .search-bar-inner {
+        padding: 0 12px;
+        gap: 6px;
+      }
+
+      .search-input {
+        height: 34px;
+        font-size: 12.5px;
+        padding-left: 29px;
+        padding-right: 28px;
+      }
+
+      .search-input-box.has-query .search-input {
+        padding-right: 128px;
+      }
+
+      .search-match-count {
+        font-size: 9.8px;
+        padding: 2px 5px;
+      }
+
+      .search-nav-btn,
+      .search-clear-btn {
+        width: 22px;
+        height: 22px;
+      }
+
+      .site-footer {
+        padding: 20px 12px 24px;
+      }
+
+      .footer-quote {
+        font-size: 0.94rem;
+      }
+
+      .footer-divider-line {
+        width: 48px;
+      }
+
+      .footer-credit {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .masthead-ornament {
+        display: none;
+      }
+
+      .sub-title-en {
+        font-size: 8.8px;
+        padding: 2px 8px;
+        letter-spacing: 0.04em;
+      }
+    }
+
+    @media (max-width: 375px) {
+      :root {
+        --header-height: 66px;
+      }
+
+      .header-grid {
+        grid-template-columns: auto 1fr auto;
+        gap: 5px;
+      }
+
+      .main-title-bn {
+        font-size: 18px;
+      }
+
+      .sub-title-en {
+        font-size: 8.5px;
+        padding: 1.5px 7px;
+        letter-spacing: 0.02em;
+      }
+
+      .site-footer {
+        padding: 18px 10px 22px;
+      }
+
+      .footer-quote {
+        font-size: 0.9rem;
+      }
+
+      .footer-divider-line {
+        width: 40px;
+      }
+
+      .footer-credit {
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .sub-title-en {
+        font-size: 7.8px;
+        padding: 1.5px 5.5px;
+        letter-spacing: 0.01em;
+      }
+    }
+  </style>
+</head>
+<body class="bg-[#131c2e] ambient-backdrop text-[#f1f5f9] min-h-screen flex flex-col antialiased selection:bg-amber-400 selection:text-slate-950">
+
+  <!-- ================= 1. STICKY TOP HEADER ================= -->
+  <header id="site-header" class="site-header sticky top-0 z-30 bg-[#19243b]/95 backdrop-blur-sm border-b border-[#2b3b59] shadow-md shadow-slate-950/25">
+    <div class="max-w-4xl mx-auto px-2.5 sm:px-6 header-grid">
+
+      <!-- Left: Pen Nib & Diya Flame Emblem -->
+      <div class="header-left">
+        <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-400/15 border border-amber-400/35 flex items-center justify-center flex-shrink-0 p-2 text-amber-400">
+          <svg class="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Diya Lamp Base -->
+            <path d="M12 36C12 36 15 41 24 41C33 41 36 36 36 36H12Z" fill="currentColor" fill-opacity="0.28"/>
+            <path d="M10 35C10 35 14 42 24 42C34 42 38 35 38 35C38 35 32 37 24 37C16 37 10 35 10 35Z" fill="currentColor"/>
+            <!-- Fountain Pen Nib shaped like a Sacred Flame -->
+            <path d="M24 6C20 13 15 21 16 28C16.8 33.6 20.5 35 24 35C27.5 35 31.2 33.6 32 28C33 21 28 13 24 6Z" fill="url(#flameNibGrad)" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="24" cy="22" r="2" fill="#FDE68A"/>
+            <path d="M24 24V33" stroke="#FEF3C7" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M24 7C23.2 10.5 21 14.5 21 18.5C21 20.2 22.3 21.5 24 21.5C25.7 21.5 27 20.2 27 18.5C27 14.5 24.8 10.5 24 7Z" fill="#FFF" fill-opacity="0.45"/>
+            <defs>
+              <linearGradient id="flameNibGrad" x1="24" y1="6" x2="24" y2="35" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FBBF24"/>
+                <stop offset="55%" stop-color="#D97706"/>
+                <stop offset="100%" stop-color="#6366F1"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Center: Mathematically Centered Editorial Masthead -->
+      <div class="header-center select-none">
+        <h1 class="main-title-bn">জ্ঞানানন্ত পাঠশালা</h1>
+        <div class="masthead-sub-row">
+          <span class="masthead-ornament left" aria-hidden="true"></span>
+          <div class="sub-title-en">Limitless Learning • Endless Wisdom</div>
+          <span class="masthead-ornament right" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Right: 3-Line Hamburger Slider Menu Button -->
+      <div class="header-right">
+        <button
+          id="btn-menu"
+          type="button"
+          aria-label="মেনু খুলুন"
+          aria-expanded="false"
+          aria-controls="slide-menu"
+          class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#1e2a44] hover:bg-[#263554] border border-[#2b3b59] text-amber-400 hover:text-amber-300 flex items-center justify-center transition-colors active:scale-95 cursor-pointer flex-shrink-0"
+        >
+          <i class="fa-solid fa-bars text-lg sm:text-xl" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= SLIDE-OVER RIGHT DRAWER MENU ================= -->
+  <div
+    id="menu-backdrop"
+    class="fixed inset-0 z-40 bg-slate-950/70 opacity-0 pointer-events-none transition-opacity duration-200"
+    aria-hidden="true"
+  ></div>
+
+  <aside
+    id="slide-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-label="BASHISTA ROY মেনু"
+    class="fixed top-0 right-0 z-50 h-full w-[85%] max-w-xs sm:max-w-sm bg-[#19243b] border-l border-[#2b3b59] shadow-2xl transform translate-x-full transition-transform duration-200 ease-out flex flex-col"
+  >
+    <!-- Drawer Top Bar: Unchanged Graduation Cap Icon + Sculptural 'BASHISTA ROY' + Close Button -->
+    <div class="px-4 sm:px-5 h-16 sm:h-20 bg-[#151f33] border-b border-[#2b3b59] flex items-center justify-between gap-2 flex-shrink-0">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <span class="w-9 h-9 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-400 flex items-center justify-center text-sm flex-shrink-0">
+          <i class="fa-solid fa-user-graduate" aria-hidden="true"></i>
+        </span>
+        <h2 class="drawer-brand-name" aria-label="BASHISTA ROY">
+          <span class="drawer-brand-word" aria-hidden="true"><span class="drawer-brand-initial">B</span><span class="drawer-brand-first">ASHISTA</span></span>
+          <span class="drawer-brand-word" aria-hidden="true"><span class="drawer-brand-initial">R</span><span class="drawer-brand-last">OY</span></span>
+        </h2>
+      </div>
+      <button
+        id="btn-menu-close"
+        type="button"
+        aria-label="মেনু বন্ধ করুন"
+        class="w-10 h-10 rounded-xl bg-[#1e2a44] hover:bg-rose-500/20 text-[#94a3b8] hover:text-rose-300 border border-[#2b3b59] flex items-center justify-center transition-colors cursor-pointer active:scale-95 flex-shrink-0"
+      >
+        <i class="fa-solid fa-xmark text-base" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Summary Stat Bar: Clean Total Subjects & Total Chapters Count -->
+    <div class="p-4 bg-[#141d30] border-b border-[#2b3b59] flex-shrink-0">
+      <div class="grid grid-cols-2 gap-2.5">
+        <div class="p-3 rounded-xl bg-[#1e2a44] border border-[#2b3b59] flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-lg bg-indigo-500/20 border border-indigo-400/30 text-indigo-400 flex items-center justify-center text-sm flex-shrink-0">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-[11px] font-medium text-[#94a3b8] leading-tight">মোট বিষয়</p>
+            <p id="drawer-total-subjects" class="text-base sm:text-lg font-bold text-[#f1f5f9] mt-0.5 leading-none flex items-baseline gap-1">
+              <span>১১</span>
+              <span class="text-xs font-medium text-[#cbd5e1]">টি</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="p-3 rounded-xl bg-[#1e2a44] border border-[#2b3b59] flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-lg bg-amber-400/15 border border-amber-400/30 text-amber-400 flex items-center justify-center text-sm flex-shrink-0">
+            <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-[11px] font-medium text-[#94a3b8] leading-tight">মোট অধ্যায়</p>
+            <p id="drawer-total-chapters" class="text-base sm:text-lg font-bold text-[#f1f5f9] mt-0.5 leading-none flex items-baseline gap-1">
+              <span>২১৪</span>
+              <span class="text-xs font-medium text-[#cbd5e1]">টি</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable List of All 11 Subjects & Their Chapter Counts -->
+    <div class="px-3.5 py-3 flex-1 overflow-y-auto custom-scroll">
+      <div id="drawer-subjects-list" class="space-y-2">
+        <!-- Populated once via DocumentFragment -->
+      </div>
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-3.5 bg-[#151f33] border-t border-[#2b3b59] text-center flex-shrink-0">
+      <p class="text-[11px] font-latin text-[#94a3b8]">জ্ঞানানন্ত পাঠশালা • Designed &amp; Created by Bashista Roy</p>
+    </div>
+  </aside>
+
+  <!-- ================= 2. SMART STICKY SEARCH BAR ================= -->
+  <div class="search-bar-wrapper" id="search-bar-wrapper">
+    <div class="search-bar-inner">
+      <div class="search-input-box" id="search-input-box">
+        <span class="search-icon" aria-hidden="true">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="বিষয় বা অধ্যায় অনুসন্ধান করুন..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="বিষয় ও অধ্যায় অনুসন্ধান"
+        />
+        <div class="search-meta">
+          <span class="kbd-hint" id="search-kbd-hint">/</span>
+          <div class="search-nav-controls" id="search-nav-controls" role="group" aria-label="Search match navigation">
+            <span class="search-match-count" id="search-match-count" aria-live="polite">0/0</span>
+            <button type="button" class="search-nav-btn" id="search-prev-btn" title="পূর্ববর্তী মিল (Shift+Enter)" aria-label="Previous match" disabled>
+              <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="search-nav-btn" id="search-next-btn" title="পরবর্তী মিল (Enter)" aria-label="Next match" disabled>
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+          </div>
+          <button type="button" class="search-clear-btn" id="search-clear-btn" title="মুছে ফেলুন" aria-label="Clear search">×</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3. MAIN CONTENT AREA (11 SUBJECTS ACCORDION) ================= -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-3.5 sm:px-6 py-5 sm:py-6">
+
+    <!-- Vertical Subject Accordion Stack -->
+    <section id="subjects-container" class="space-y-3.5 select-none" aria-label="সাধারণ জ্ঞান ও বিগত বছরের প্রশ্নপত্র তালিকা">
+      <!-- Built once on page load via DocumentFragment -->
+    </section>
+
+    <!-- Empty Search State -->
+    <div id="empty-search" class="hidden py-14 text-center select-none bg-[#1d2940] rounded-2xl border border-[#2b3b59] px-4">
+      <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-[#131c2e] border border-[#2b3b59] text-amber-400 flex items-center justify-center text-xl">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-sm sm:text-base font-bold text-[#f1f5f9]">কোনো বিষয় বা অধ্যায় খুঁজে পাওয়া যায়নি</h3>
+      <p class="text-xs sm:text-sm text-[#94a3b8] mt-1 max-w-xs mx-auto">
+        অন্য কোনো বাংলা বা ইংরেজি কী-ওয়ার্ড লিখে পুনরায় অনুসন্ধান করুন।
+      </p>
+      <button
+        id="btn-reset-search"
+        type="button"
+        class="mt-4 inline-flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-[#8aa4e8]/15 hover:bg-[#8aa4e8]/25 border border-[#8aa4e8]/35 text-[#edf0f7] text-xs sm:text-sm font-semibold transition-colors cursor-pointer active:scale-95"
+      >
+        <i class="fa-solid fa-rotate-left text-xs text-[#8aa4e8]" aria-hidden="true"></i>
+        <span>সব দেখুন</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ================= 4. MATCHED EDITORIAL FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-quote">চাকরি একদিন তোমার সাফল্যই সবচেয়ে বড় উৎসব হবে</p>
+      <div class="footer-divider" aria-hidden="true">
+        <span class="footer-divider-line left"></span>
+        <span class="footer-divider-dot"></span>
+        <span class="footer-divider-gem"></span>
+        <span class="footer-divider-dot"></span>
+        <span class="footer-divider-line right"></span>
+      </div>
+      <p class="footer-credit">
+        General Knowledge Portal <span class="footer-dot" aria-hidden="true">•</span> Design &amp; Created by <span class="footer-author">Bashista Roy</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ================= 5. OPTIMIZED DATA, PERSISTENT ACCORDION & SEARCH CONTROLLER ================= -->
+  <script>
+    (() => {
+      'use strict';
+
+      /**
+       * Persistent Storage Key for Active Expanded Subject
+       */
+      const STORAGE_KEY_EXPANDED_SUBJECT = 'jp_expanded_subject_id';
+
+      /**
+       * Complete 11-Subject Curriculum & Previous Year Question Paper Database (214 Chapters)
+       * targetUrl format: subjects/<subject_folder_lowercase>/mcq/chapter_<num>_<chapter_title_en_lowercase_with_underscores>.html
+       * All Tailwind utility classes are statically declared so JIT compiles every theme cleanly.
+       */
+      const GK_DATABASE = [
+        {
+          id: "history",
+          nameBn: "ভারতের ইতিহাস",
+          nameEn: "Indian History",
+          icon: "fa-landmark",
+          iconBadge: "bg-amber-500/15 text-amber-400 border-amber-500/30",
+          theme: {
+            cardOpen: ["border-amber-400/65", "ring-2", "ring-amber-500/20"],
+            chevronOpen: ["bg-amber-500/20", "text-amber-300", "border-amber-400/40", "rotate-180"],
+            chapterRow: "border-amber-500/30 hover:border-amber-400",
+            chapterNum: "bg-amber-500/15 text-amber-300 border-amber-400/30 group-hover:bg-amber-500/25 group-hover:text-amber-200 group-hover:border-amber-400/60",
+            chapterTitle: "group-hover:text-amber-300",
+            chapterArrow: "bg-amber-500/15 text-amber-300 border-amber-400/30 group-hover:bg-amber-500 group-hover:text-slate-950 group-hover:border-amber-400",
+            closeBtn: "hover:border-amber-400/60",
+            closeIcon: "text-amber-400"
+          },
+          chapters: [
+            { id: "hist-01", titleBn: "ইতিহাসের ধারণা", titleEn: "Concept of History", targetUrl: "subjects/history/mcq/chapter_1_concept_of_history.html" },
+            { id: "hist-02", titleBn: "ইতিহাসের উপাদান", titleEn: "Sources of History", targetUrl: "subjects/history/mcq/chapter_2_sources_of_history.html" },
+            { id: "hist-03", titleBn: "ইতিহাসের যুগ বিভাজন", titleEn: "Periodization of History", targetUrl: "subjects/history/mcq/chapter_3_periodization_of_history.html" },
+            { id: "hist-04", titleBn: "মেহেরগড় সভ্যতা", titleEn: "Mehrgarh Civilization", targetUrl: "subjects/history/mcq/chapter_4_mehrgarh_civilization.html" },
+            { id: "hist-05", titleBn: "সিন্ধু সভ্যতা", titleEn: "Indus Valley Civilization", targetUrl: "subjects/history/mcq/chapter_5_indus_valley_civilization.html" },
+            { id: "hist-06", titleBn: "আর্য ও বৈদিক সভ্যতা", titleEn: "Aryan and Vedic Civilization", targetUrl: "subjects/history/mcq/chapter_6_aryan_and_vedic_civilization.html" },
+            { id: "hist-07", titleBn: "প্রতিবাদী ধর্ম আন্দোলন", titleEn: "Religious Movements", targetUrl: "subjects/history/mcq/chapter_7_religious_movements.html" },
+            { id: "hist-08", titleBn: "রাজনৈতিক আধিপত্যের যুগ", titleEn: "Age of Political Hegemony", targetUrl: "subjects/history/mcq/chapter_8_age_of_political_hegemony.html" },
+            { id: "hist-09", titleBn: "মৌর্য যুগ", titleEn: "Mauryan Age", targetUrl: "subjects/history/mcq/chapter_9_mauryan_age.html" },
+            { id: "hist-10", titleBn: "মৌর্য পরবর্তী যুগ ও বৈদেশিক আক্রমণ", titleEn: "Post Mauryan Age and Foreign Invasion", targetUrl: "subjects/history/mcq/chapter_10_post_mauryan_age_and_foreign_invasion.html" },
+            { id: "hist-11", titleBn: "গুপ্ত যুগ", titleEn: "Gupta Age", targetUrl: "subjects/history/mcq/chapter_11_gupta_age.html" },
+            { id: "hist-12", titleBn: "গুপ্তোত্তর যুগে আঞ্চলিক শক্তির উত্থান", titleEn: "Emergence of Regional Powers in Post Gupta Period", targetUrl: "subjects/history/mcq/chapter_12_emergence_of_regional_powers_in_post_gupta_period.html" },
+            { id: "hist-13", titleBn: "দক্ষিণ ভারত", titleEn: "South India", targetUrl: "subjects/history/mcq/chapter_13_south_india.html" },
+            { id: "hist-14", titleBn: "প্রাচীন বাংলা", titleEn: "Ancient Bengal", targetUrl: "subjects/history/mcq/chapter_14_ancient_bengal.html" },
+            { id: "hist-15", titleBn: "ভারতে সামন্ততন্ত্র, ধর্ম; বৈদেশিক সভ্যতার সঙ্গে বাণিজ্যিক ও সাংস্কৃতিক যোগাযোগ", titleEn: "Feudalism, Religion in India; Commercial & Cultural Relationship between India and Foreign Civilizations", targetUrl: "subjects/history/mcq/chapter_15_feudalism_religion_in_india_commercial_and_cultural_relationship_between_india_and_foreign_civilizations.html" },
+            { id: "hist-16", titleBn: "রাজপুত শক্তি", titleEn: "Rajput Powers", targetUrl: "subjects/history/mcq/chapter_16_rajput_powers.html" },
+            { id: "hist-17", titleBn: "আরবদের সিন্ধুদেশে আগমন", titleEn: "Arrival of Arabs in Sindh", targetUrl: "subjects/history/mcq/chapter_17_arrival_of_arabs_in_sindh.html" },
+            { id: "hist-18", titleBn: "দিল্লির সুলতানি সাম্রাজ্য", titleEn: "Delhi Sultanate", targetUrl: "subjects/history/mcq/chapter_18_delhi_sultanate.html" },
+            { id: "hist-19", titleBn: "সুলতানি আমলে আঞ্চলিক রাজ্যসমূহ", titleEn: "Provincial States in Sultanate Period", targetUrl: "subjects/history/mcq/chapter_19_provincial_states_in_sultanate_period.html" },
+            { id: "hist-20", titleBn: "মধ্যযুগে ধর্মীয় আন্দোলন", titleEn: "Religious Movements in Medieval Period", targetUrl: "subjects/history/mcq/chapter_20_religious_movements_in_medieval_period.html" },
+            { id: "hist-21", titleBn: "মুঘল সাম্রাজ্য", titleEn: "Mughal Empire", targetUrl: "subjects/history/mcq/chapter_21_mughal_empire.html" },
+            { id: "hist-22", titleBn: "মুঘল আমলে আঞ্চলিক শক্তির উত্থান ও মুঘলদের পতন", titleEn: "Rise of Regional Powers during Mughal Period and Decline of the Mughals", targetUrl: "subjects/history/mcq/chapter_22_rise_of_regional_powers_during_mughal_period_and_decline_of_the_mughals.html" },
+            { id: "hist-23", titleBn: "ইউরোপীয়দের ভারতে আগমন", titleEn: "Arrival of the Europeans in India", targetUrl: "subjects/history/mcq/chapter_23_arrival_of_the_europeans_in_india.html" },
+            { id: "hist-24", titleBn: "ভারতে ব্রিটিশ সাম্রাজ্যের বিস্তার", titleEn: "Expansion of British Empire in India", targetUrl: "subjects/history/mcq/chapter_24_expansion_of_british_empire_in_india.html" },
+            { id: "hist-25", titleBn: "ব্রিটিশ ভারতের প্রশাসনিক ও অর্থনৈতিক ব্যবস্থা", titleEn: "Administrative and Economic Systems of British India", targetUrl: "subjects/history/mcq/chapter_25_administrative_and_economic_systems_of_british_india.html" },
+            { id: "hist-26", titleBn: "বিদ্রোহ ও মহাবিদ্রোহ", titleEn: "Revolts and the Revolt of 1857", targetUrl: "subjects/history/mcq/chapter_26_revolts_and_the_revolt_of_1857.html" },
+            { id: "hist-27", titleBn: "ঊনবিংশ ও বিংশ শতকে ভারতে শিক্ষা, সমাজ ও ধর্মসংস্কার আন্দোলন", titleEn: "Educational, Social and Religious Reform Movements in India during 19th and 20th Century", targetUrl: "subjects/history/mcq/chapter_27_educational_social_and_religious_reform_movements_in_india_during_19th_and_20th_century.html" },
+            { id: "hist-28", titleBn: "সংবাদপত্র, বই, সভা-সমিতি", titleEn: "Newspapers, Books and Associations", targetUrl: "subjects/history/mcq/chapter_28_newspapers_books_and_associations.html" },
+            { id: "hist-29", titleBn: "ভারতের জাতীয় কংগ্রেস", titleEn: "Indian National Congress", targetUrl: "subjects/history/mcq/chapter_29_indian_national_congress.html" },
+            { id: "hist-30", titleBn: "ভারত ও ভারতের বাইরে বৈপ্লবিক আন্দোলন", titleEn: "Revolutionary Movements in India and Outside", targetUrl: "subjects/history/mcq/chapter_30_revolutionary_movements_in_india_and_outside.html" },
+            { id: "hist-31", titleBn: "ভারতের জাতীয়তাবাদী সংগ্রামের বিভিন্ন পর্যায় ও স্বাধীনতা লাভ", titleEn: "Different Phases of India's National Movement and to Achieve Independence", targetUrl: "subjects/history/mcq/chapter_31_different_phases_of_indias_national_movement_and_to_achieve_independence.html" },
+            { id: "hist-32", titleBn: "ভারতের স্বাধীনতা আন্দোলনের কিছু গুরুত্বপূর্ণ উক্তি, গান ও উপাধি", titleEn: "Some Significant Quotes, Songs and Titles of Indian Freedom Movement", targetUrl: "subjects/history/mcq/chapter_32_some_significant_quotes_songs_and_titles_of_indian_freedom_movement.html" }
+          ]
+        },
+        {
+          id: "geography",
+          nameBn: "ভারত ও পশ্চিমবঙ্গের ভূগোল",
+          nameEn: "Geography of India & West Bengal",
+          icon: "fa-earth-asia",
+          iconBadge: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
+          theme: {
+            cardOpen: ["border-emerald-400/65", "ring-2", "ring-emerald-500/20"],
+            chevronOpen: ["bg-emerald-500/20", "text-emerald-300", "border-emerald-400/40", "rotate-180"],
+            chapterRow: "border-emerald-500/30 hover:border-emerald-400",
+            chapterNum: "bg-emerald-500/15 text-emerald-300 border-emerald-400/30 group-hover:bg-emerald-500/25 group-hover:text-emerald-200 group-hover:border-emerald-400/60",
+            chapterTitle: "group-hover:text-emerald-300",
+            chapterArrow: "bg-emerald-500/15 text-emerald-300 border-emerald-400/30 group-hover:bg-emerald-500 group-hover:text-slate-950 group-hover:border-emerald-400",
+            closeBtn: "hover:border-emerald-400/60",
+            closeIcon: "text-emerald-400"
+          },
+          chapters: [
+            { id: "geo-01", titleBn: "সৌরজগৎ", titleEn: "Solar System", targetUrl: "subjects/geography/mcq/chapter_1_solar_system.html" },
+            { id: "geo-02", titleBn: "পৃথিবী সম্পর্কিত কয়েকটি তথ্য", titleEn: "Some Facts About Earth", targetUrl: "subjects/geography/mcq/chapter_2_some_facts_about_earth.html" },
+            { id: "geo-03", titleBn: "পৃথিবীর গতিসমূহ", titleEn: "Motion of the Earth", targetUrl: "subjects/geography/mcq/chapter_3_motion_of_the_earth.html" },
+            { id: "geo-04", titleBn: "পৃথিবীর ভূ-অভ্যন্তরীণ গঠন", titleEn: "Interior Structure of the Earth", targetUrl: "subjects/geography/mcq/chapter_4_interior_structure_of_the_earth.html" },
+            { id: "geo-05", titleBn: "অন্তর্জাত প্রক্রিয়া ও তার দ্বারা গঠিত ভূমিরূপ", titleEn: "Endogenetic Processes and Associated Landforms", targetUrl: "subjects/geography/mcq/chapter_5_endogenetic_processes_and_associated_landforms.html" },
+            { id: "geo-06", titleBn: "বহির্জাত প্রক্রিয়া ও তার দ্বারা গঠিত ভূমিরূপ", titleEn: "Exogenetic Processes and Associated Landforms", targetUrl: "subjects/geography/mcq/chapter_6_exogenetic_processes_and_associated_landforms.html" },
+            { id: "geo-07", titleBn: "প্রধান ভূমিরূপসমূহ", titleEn: "Major Landforms of the Earth", targetUrl: "subjects/geography/mcq/chapter_7_major_landforms_of_the_earth.html" },
+            { id: "geo-08", titleBn: "বায়ুমণ্ডল", titleEn: "Atmosphere", targetUrl: "subjects/geography/mcq/chapter_8_atmosphere.html" },
+            { id: "geo-09", titleBn: "বারিমণ্ডল", titleEn: "Hydrosphere", targetUrl: "subjects/geography/mcq/chapter_9_hydrosphere.html" },
+            { id: "geo-10", titleBn: "মৃত্তিকা ও স্বাভাবিক উদ্ভিদের বণ্টন", titleEn: "Distribution of Soil and Natural Vegetation", targetUrl: "subjects/geography/mcq/chapter_10_distribution_of_soil_and_natural_vegetation.html" },
+            { id: "geo-11", titleBn: "ভারত ও পশ্চিমবঙ্গের ভূমিকা", titleEn: "Introduction of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_11_introduction_of_india_and_west_bengal.html" },
+            { id: "geo-12", titleBn: "ভারত ও পশ্চিমবঙ্গের ভূপ্রকৃতি", titleEn: "Physiography of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_12_physiography_of_india_and_west_bengal.html" },
+            { id: "geo-13", titleBn: "ভারত ও পশ্চিমবঙ্গের নদনদী", titleEn: "Rivers of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_13_rivers_of_india_and_west_bengal.html" },
+            { id: "geo-14", titleBn: "ভারত ও পশ্চিমবঙ্গের জলবায়ু", titleEn: "Climate of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_14_climate_of_india_and_west_bengal.html" },
+            { id: "geo-15", titleBn: "ভারত ও পশ্চিমবঙ্গের মৃত্তিকা", titleEn: "Soil of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_15_soil_of_india_and_west_bengal.html" },
+            { id: "geo-16", titleBn: "ভারত ও পশ্চিমবঙ্গের স্বাভাবিক উদ্ভিদ", titleEn: "Natural Vegetation of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_16_natural_vegetation_of_india_and_west_bengal.html" },
+            { id: "geo-17", titleBn: "ভারত ও পশ্চিমবঙ্গের অরণ্য ও বন্যপ্রাণ", titleEn: "Forests and Wildlife of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_17_forests_and_wildlife_of_india_and_west_bengal.html" },
+            { id: "geo-18", titleBn: "ভারত ও পশ্চিমবঙ্গের কৃষি ও জলসেচ ব্যবস্থা", titleEn: "Agriculture and Irrigation System of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_18_agriculture_and_irrigation_system_of_india_and_west_bengal.html" },
+            { id: "geo-19", titleBn: "ভারত ও পশ্চিমবঙ্গের খনিজ ও শক্তি সম্পদ", titleEn: "Mineral and Energy Resources of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_19_mineral_and_energy_resources_of_india_and_west_bengal.html" },
+            { id: "geo-20", titleBn: "ভারত ও পশ্চিমবঙ্গের শিল্পসমূহ", titleEn: "Industries of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_20_industries_of_india_and_west_bengal.html" },
+            { id: "geo-21", titleBn: "ভারত ও পশ্চিমবঙ্গের পরিবহণ ও যোগাযোগ ব্যবস্থা", titleEn: "Transport and Communication System of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_21_transport_and_communication_system_of_india_and_west_bengal.html" },
+            { id: "geo-22", titleBn: "ভারত ও পশ্চিমবঙ্গের জনবসতি ও জনগোষ্ঠী", titleEn: "Settlement and Tribal Community of India and West Bengal", targetUrl: "subjects/geography/mcq/chapter_22_settlement_and_tribal_community_of_india_and_west_bengal.html" },
+            { id: "geo-23", titleBn: "ভারতের রাজ্য ও পশ্চিমবঙ্গের জেলাসমূহ", titleEn: "States of India and Districts of West Bengal", targetUrl: "subjects/geography/mcq/chapter_23_states_of_india_and_districts_of_west_bengal.html" },
+            { id: "geo-24", titleBn: "বিবিধ", titleEn: "Miscellaneous", targetUrl: "subjects/geography/mcq/chapter_24_miscellaneous.html" }
+          ]
+        },
+        {
+          id: "polity",
+          nameBn: "ভারতের সংবিধান",
+          nameEn: "Indian Constitution & Polity",
+          icon: "fa-scale-balanced",
+          iconBadge: "bg-blue-500/15 text-blue-400 border-blue-500/30",
+          theme: {
+            cardOpen: ["border-blue-400/65", "ring-2", "ring-blue-500/20"],
+            chevronOpen: ["bg-blue-500/20", "text-blue-300", "border-blue-400/40", "rotate-180"],
+            chapterRow: "border-blue-500/30 hover:border-blue-400",
+            chapterNum: "bg-blue-500/15 text-blue-300 border-blue-400/30 group-hover:bg-blue-500/25 group-hover:text-blue-200 group-hover:border-blue-400/60",
+            chapterTitle: "group-hover:text-blue-300",
+            chapterArrow: "bg-blue-500/15 text-blue-300 border-blue-400/30 group-hover:bg-blue-500 group-hover:text-white group-hover:border-blue-400",
+            closeBtn: "hover:border-blue-400/60",
+            closeIcon: "text-blue-400"
+          },
+          chapters: [
+            { id: "pol-01", titleBn: "ভারতীয় সংবিধান রচনার পূর্বে প্রণীত গুরুত্বপূর্ণ আইনসমূহ", titleEn: "Important Laws before the making of Indian Constitution", targetUrl: "subjects/polity/mcq/chapter_1_important_laws_before_the_making_of_indian_constitution.html" },
+            { id: "pol-02", titleBn: "গণপরিষদ ও ভারতীয় সংবিধান রচনা", titleEn: "Constituent Assembly and Making of Indian Constitution", targetUrl: "subjects/polity/mcq/chapter_2_constituent_assembly_and_making_of_indian_constitution.html" },
+            { id: "pol-03", titleBn: "ভারতের সংবিধানের বৈশিষ্ট্য ও উৎস", titleEn: "Features of the Indian Constitution and Source", targetUrl: "subjects/polity/mcq/chapter_3_features_of_the_indian_constitution_and_source.html" },
+            { id: "pol-04", titleBn: "ভারতীয় সংবিধানের প্রস্তাবনা", titleEn: "Preamble of the Indian Constitution", targetUrl: "subjects/polity/mcq/chapter_4_preamble_of_the_indian_constitution.html" },
+            { id: "pol-05", titleBn: "ভারতীয় ইউনিয়ন ও তার ভূখণ্ড", titleEn: "Indian Union and Its Territory", targetUrl: "subjects/polity/mcq/chapter_5_indian_union_and_its_territory.html" },
+            { id: "pol-06", titleBn: "ভারতের নাগরিকত্ব", titleEn: "Citizenship of India", targetUrl: "subjects/polity/mcq/chapter_6_citizenship_of_india.html" },
+            { id: "pol-07", titleBn: "মৌলিক অধিকার", titleEn: "Fundamental Rights", targetUrl: "subjects/polity/mcq/chapter_7_fundamental_rights.html" },
+            { id: "pol-08", titleBn: "রাষ্ট্রপরিচালনার নির্দেশমূলক নীতিসমূহ", titleEn: "Directive Principles of State Policy", targetUrl: "subjects/polity/mcq/chapter_8_directive_principles_of_state_policy.html" },
+            { id: "pol-09", titleBn: "মৌলিক কর্তব্য", titleEn: "Fundamental Duties", targetUrl: "subjects/polity/mcq/chapter_9_fundamental_duties.html" },
+            { id: "pol-10", titleBn: "কেন্দ্র ও রাজ্যগুলির মধ্যে সম্পর্ক", titleEn: "Relation between Union and State", targetUrl: "subjects/polity/mcq/chapter_10_relation_between_union_and_state.html" },
+            { id: "pol-11", titleBn: "কেন্দ্রীয় শাসন বিভাগ", titleEn: "Central Government", targetUrl: "subjects/polity/mcq/chapter_11_central_government.html" },
+            { id: "pol-12", titleBn: "কেন্দ্রীয় আইন বিভাগ", titleEn: "Union Legislature", targetUrl: "subjects/polity/mcq/chapter_12_union_legislature.html" },
+            { id: "pol-13", titleBn: "পার্লামেন্ট সম্পর্কিত গুরুত্বপূর্ণ বিষয়", titleEn: "Important Matters Related to Parliament", targetUrl: "subjects/polity/mcq/chapter_13_important_matters_related_to_parliament.html" },
+            { id: "pol-14", titleBn: "ভারতের বিচার বিভাগ", titleEn: "The Indian Judiciary", targetUrl: "subjects/polity/mcq/chapter_14_the_indian_judiciary.html" },
+            { id: "pol-15", titleBn: "রাজ্যের শাসন বিভাগ", titleEn: "State Executive", targetUrl: "subjects/polity/mcq/chapter_15_state_executive.html" },
+            { id: "pol-16", titleBn: "রাজ্যের আইন বিভাগ", titleEn: "State Legislature", targetUrl: "subjects/polity/mcq/chapter_16_state_legislature.html" },
+            { id: "pol-17", titleBn: "রাজ্যের বিচার বিভাগ", titleEn: "State Judiciary", targetUrl: "subjects/polity/mcq/chapter_17_state_judiciary.html" },
+            { id: "pol-18", titleBn: "স্থানীয় স্বায়ত্তশাসন ব্যবস্থা", titleEn: "Local Self Government", targetUrl: "subjects/polity/mcq/chapter_18_local_self_government.html" },
+            { id: "pol-19", titleBn: "সংবিধান সংশোধন", titleEn: "Constitutional Amendment", targetUrl: "subjects/polity/mcq/chapter_19_constitutional_amendment.html" },
+            { id: "pol-20", titleBn: "সরকারি ভাষা", titleEn: "Official Language", targetUrl: "subjects/polity/mcq/chapter_20_official_language.html" },
+            { id: "pol-21", titleBn: "ভারতীয় সংবিধানে সংরক্ষণ ব্যবস্থা", titleEn: "The Provision of Reservation in Indian Constitution", targetUrl: "subjects/polity/mcq/chapter_21_the_provision_of_reservation_in_indian_constitution.html" },
+            { id: "pol-22", titleBn: "ভারতের দলীয় ব্যবস্থা ও স্বার্থগোষ্ঠী", titleEn: "Indian Party System and Interest Groups", targetUrl: "subjects/polity/mcq/chapter_22_indian_party_system_and_interest_groups.html" },
+            { id: "pol-23", titleBn: "কয়েকটি রাজ্য ও কেন্দ্রশাসিত অঞ্চলের গৃহীত ব্যবস্থা", titleEn: "Special Provisions for Some States and Union Territories", targetUrl: "subjects/polity/mcq/chapter_23_special_provisions_for_some_states_and_union_territories.html" },
+            { id: "pol-24", titleBn: "সংবিধানে অন্তর্ভুক্ত সংস্থাসমূহ", titleEn: "Constitutional Bodies", targetUrl: "subjects/polity/mcq/chapter_24_constitutional_bodies.html" },
+            { id: "pol-25", titleBn: "সংবিধান বহির্ভূত সংস্থাসমূহ", titleEn: "Non-Constitutional Bodies", targetUrl: "subjects/polity/mcq/chapter_25_non_constitutional_bodies.html" }
+          ]
+        },
+        {
+          id: "economy",
+          nameBn: "ভারতীয় অর্থনীতি",
+          nameEn: "Indian Economy",
+          icon: "fa-chart-line",
+          iconBadge: "bg-purple-500/15 text-purple-400 border-purple-500/30",
+          theme: {
+            cardOpen: ["border-purple-400/65", "ring-2", "ring-purple-500/20"],
+            chevronOpen: ["bg-purple-500/20", "text-purple-300", "border-purple-400/40", "rotate-180"],
+            chapterRow: "border-purple-500/30 hover:border-purple-400",
+            chapterNum: "bg-purple-500/15 text-purple-300 border-purple-400/30 group-hover:bg-purple-500/25 group-hover:text-purple-200 group-hover:border-purple-400/60",
+            chapterTitle: "group-hover:text-purple-300",
+            chapterArrow: "bg-purple-500/15 text-purple-300 border-purple-400/30 group-hover:bg-purple-500 group-hover:text-white group-hover:border-purple-400",
+            closeBtn: "hover:border-purple-400/60",
+            closeIcon: "text-purple-400"
+          },
+          chapters: [
+            { id: "eco-01", titleBn: "অর্থনীতি এবং অর্থনৈতিক ব্যবস্থা", titleEn: "Economy and Economic System", targetUrl: "subjects/economy/mcq/chapter_1_economy_and_economic_system.html" },
+            { id: "eco-02", titleBn: "চাহিদা ও জোগান", titleEn: "Demand and Supply", targetUrl: "subjects/economy/mcq/chapter_2_demand_and_supply.html" },
+            { id: "eco-03", titleBn: "উৎপাদন, ব্যয়, আয় এবং বাজার", titleEn: "Production, Cost, Revenue and Market", targetUrl: "subjects/economy/mcq/chapter_3_production_cost_revenue_and_market.html" },
+            { id: "eco-04", titleBn: "ভারতের পঞ্চবার্ষিকী পরিকল্পনা", titleEn: "India's Five Years Planning", targetUrl: "subjects/economy/mcq/chapter_4_indias_five_years_planning.html" },
+            { id: "eco-05", titleBn: "জাতীয় আয়", titleEn: "National Income", targetUrl: "subjects/economy/mcq/chapter_5_national_income.html" },
+            { id: "eco-06", titleBn: "ভারতীয় কৃষি", titleEn: "Indian Agriculture", targetUrl: "subjects/economy/mcq/chapter_6_indian_agriculture.html" },
+            { id: "eco-07", titleBn: "ভারতীয় শিল্প", titleEn: "Indian Industry", targetUrl: "subjects/economy/mcq/chapter_7_indian_industry.html" },
+            { id: "eco-08", titleBn: "পরিসেবা ক্ষেত্র", titleEn: "Service Sector", targetUrl: "subjects/economy/mcq/chapter_8_service_sector.html" },
+            { id: "eco-09", titleBn: "ভারতের জনসংখ্যা", titleEn: "Population of India", targetUrl: "subjects/economy/mcq/chapter_9_population_of_india.html" },
+            { id: "eco-10", titleBn: "দারিদ্র্য ও বৈষম্য", titleEn: "Poverty and Inequality", targetUrl: "subjects/economy/mcq/chapter_10_poverty_and_inequality.html" },
+            { id: "eco-11", titleBn: "বেকারত্ব", titleEn: "Unemployment", targetUrl: "subjects/economy/mcq/chapter_11_unemployment.html" },
+            { id: "eco-12", titleBn: "ভারতের ব্যাংকিং ব্যবস্থা", titleEn: "Indian Banking System", targetUrl: "subjects/economy/mcq/chapter_12_indian_banking_system.html" },
+            { id: "eco-13", titleBn: "ভারতের আর্থিক বাজার", titleEn: "Indian Financial Market", targetUrl: "subjects/economy/mcq/chapter_13_indian_financial_market.html" },
+            { id: "eco-14", titleBn: "অর্থ এবং মুদ্রাস্ফীতি", titleEn: "Money and Inflation", targetUrl: "subjects/economy/mcq/chapter_14_money_and_inflation.html" },
+            { id: "eco-15", titleBn: "ভারতের রাজকোষ নীতি", titleEn: "Fiscal Policy of India", targetUrl: "subjects/economy/mcq/chapter_15_fiscal_policy_of_india.html" },
+            { id: "eco-16", titleBn: "আন্তর্জাতিক বাণিজ্য", titleEn: "International Trade", targetUrl: "subjects/economy/mcq/chapter_16_international_trade.html" },
+            { id: "eco-17", titleBn: "ভারত সরকারের প্রকল্পসমূহ", titleEn: "Different Schemes by Government of India", targetUrl: "subjects/economy/mcq/chapter_17_different_schemes_by_government_of_india.html" },
+            { id: "eco-18", titleBn: "আন্তর্জাতিক অর্থনৈতিক প্রতিষ্ঠানসমূহ", titleEn: "International Economic Organisation", targetUrl: "subjects/economy/mcq/chapter_18_international_economic_organisation.html" },
+            { id: "eco-19", titleBn: "অর্থনীতি সম্বন্ধীয় সাম্প্রতিক বিষয়সমূহ", titleEn: "Current Topics Related to Economy", targetUrl: "subjects/economy/mcq/chapter_19_current_topics_related_to_economy.html" },
+            { id: "eco-20", titleBn: "বিবিধ", titleEn: "Miscellaneous", targetUrl: "subjects/economy/mcq/chapter_20_miscellaneous.html" },
+            { id: "eco-21", titleBn: "পণ্য এবং পরিষেবার পরিবর্তিত GST হার", titleEn: "Changed GST Rate of Goods and Services", targetUrl: "subjects/economy/mcq/chapter_21_changed_gst_rate_of_goods_and_services.html" }
+          ]
+        },
+        {
+          id: "biology",
+          nameBn: "জীববিদ্যা",
+          nameEn: "Biology",
+          icon: "fa-dna",
+          iconBadge: "bg-teal-500/15 text-teal-400 border-teal-500/30",
+          theme: {
+            cardOpen: ["border-teal-400/65", "ring-2", "ring-teal-500/20"],
+            chevronOpen: ["bg-teal-500/20", "text-teal-300", "border-teal-400/40", "rotate-180"],
+            chapterRow: "border-teal-500/30 hover:border-teal-400",
+            chapterNum: "bg-teal-500/15 text-teal-300 border-teal-400/30 group-hover:bg-teal-500/25 group-hover:text-teal-200 group-hover:border-teal-400/60",
+            chapterTitle: "group-hover:text-teal-300",
+            chapterArrow: "bg-teal-500/15 text-teal-300 border-teal-400/30 group-hover:bg-teal-500 group-hover:text-slate-950 group-hover:border-teal-400",
+            closeBtn: "hover:border-teal-400/60",
+            closeIcon: "text-teal-400"
+          },
+          chapters: [
+            { id: "bio-01", titleBn: "জীববিদ্যার বিভিন্ন শাখা", titleEn: "Different Branches of Biology", targetUrl: "subjects/biology/mcq/chapter_1_different_branches_of_biology.html" },
+            { id: "bio-02", titleBn: "বিন্যাসবিধি ও সিস্টেমেটিক্স", titleEn: "Taxonomy and Systematics", targetUrl: "subjects/biology/mcq/chapter_2_taxonomy_and_systematics.html" },
+            { id: "bio-03", titleBn: "জীবের শ্রেণিভিন্যাস", titleEn: "Biological Classification", targetUrl: "subjects/biology/mcq/chapter_3_biological_classification.html" },
+            { id: "bio-04", titleBn: "কোষ", titleEn: "Cell", targetUrl: "subjects/biology/mcq/chapter_4_cell.html" },
+            { id: "bio-05", titleBn: "উদ্ভিদ কলা ও প্রাণী কলা", titleEn: "Plant Tissue & Animal Tissue", targetUrl: "subjects/biology/mcq/chapter_5_plant_tissue_and_animal_tissue.html" },
+            { id: "bio-06", titleBn: "নিউক্লিক অ্যাসিড", titleEn: "Nucleic Acid", targetUrl: "subjects/biology/mcq/chapter_6_nucleic_acid.html" },
+            { id: "bio-07", titleBn: "ক্রোমোজোম ও বংশগতি", titleEn: "Chromosome and Heredity", targetUrl: "subjects/biology/mcq/chapter_7_chromosome_and_heredity.html" },
+            { id: "bio-08", titleBn: "কোষচক্র ও কোষ বিভাজন", titleEn: "Cell Cycle and Cell Division", targetUrl: "subjects/biology/mcq/chapter_8_cell_cycle_and_cell_division.html" },
+            { id: "bio-09", titleBn: "ক্যানসার", titleEn: "Cancer", targetUrl: "subjects/biology/mcq/chapter_9_cancer.html" },
+            { id: "bio-10", titleBn: "উদ্ভিদের গঠনগত অঙ্গসংস্থান", titleEn: "Morphology of Plants", targetUrl: "subjects/biology/mcq/chapter_10_morphology_of_plants.html" },
+            { id: "bio-11", titleBn: "সালোকসংশ্লেষ", titleEn: "Photosynthesis", targetUrl: "subjects/biology/mcq/chapter_11_photosynthesis.html" },
+            { id: "bio-12", titleBn: "বাষ্পমোচন", titleEn: "Transpiration", targetUrl: "subjects/biology/mcq/chapter_12_transpiration.html" },
+            { id: "bio-13", titleBn: "উদ্ভিদের শোষণ ও পরিবহণ", titleEn: "Absorption and Transportation in Plants", targetUrl: "subjects/biology/mcq/chapter_13_absorption_and_transportation_in_plants.html" },
+            { id: "bio-14", titleBn: "উদ্ভিদের বিভিন্ন রোগ", titleEn: "Different Plant Diseases", targetUrl: "subjects/biology/mcq/chapter_14_different_plant_diseases.html" },
+            { id: "bio-15", titleBn: "মানুষের সংবহন", titleEn: "Circulation in Human", targetUrl: "subjects/biology/mcq/chapter_15_circulation_in_human.html" },
+            { id: "bio-16", titleBn: "মানুষের পৌষ্টিকতন্ত্র", titleEn: "Digestive System of Human", targetUrl: "subjects/biology/mcq/chapter_16_digestive_system_of_human.html" },
+            { id: "bio-17", titleBn: "স্নায়ুতন্ত্র ও জ্ঞানেন্দ্রিয়", titleEn: "Nervous System and Sense Organ", targetUrl: "subjects/biology/mcq/chapter_17_nervous_system_and_sense_organ.html" },
+            { id: "bio-18", titleBn: "অনাক্রম্য তন্ত্র", titleEn: "Immune System", targetUrl: "subjects/biology/mcq/chapter_18_immune_system.html" },
+            { id: "bio-19", titleBn: "উদ্ভিদ ও প্রাণী পুষ্টি", titleEn: "Nutrition in Plants and Animals", targetUrl: "subjects/biology/mcq/chapter_19_nutrition_in_plants_and_animals.html" },
+            { id: "bio-20", titleBn: "শ্বসন ও শ্বাসকার্য", titleEn: "Respiration and Breathing", targetUrl: "subjects/biology/mcq/chapter_20_respiration_and_breathing.html" },
+            { id: "bio-21", titleBn: "উদ্ভিদ ও প্রাণীর রেচন", titleEn: "Excretion in Plants and Animals", targetUrl: "subjects/biology/mcq/chapter_21_excretion_in_plants_and_animals.html" },
+            { id: "bio-22", titleBn: "উদ্ভিদ ও প্রাণীর জনন", titleEn: "Reproduction in Plants and Animals", targetUrl: "subjects/biology/mcq/chapter_22_reproduction_in_plants_and_animals.html" },
+            { id: "bio-23", titleBn: "উদ্ভিদ ও প্রাণী হরমোন", titleEn: "Plant and Animal Hormone", targetUrl: "subjects/biology/mcq/chapter_23_plant_and_animal_hormone.html" },
+            { id: "bio-24", titleBn: "চলন ও গমন", titleEn: "Movement and Locomotion", targetUrl: "subjects/biology/mcq/chapter_24_movement_and_locomotion.html" },
+            { id: "bio-25", titleBn: "অভিব্যক্তি ও অভিযোজন", titleEn: "Evolution and Adaptation", targetUrl: "subjects/biology/mcq/chapter_25_evolution_and_adaptation.html" },
+            { id: "bio-26", titleBn: "বাস্তুবিদ্যা ও জীববৈচিত্র্য", titleEn: "Ecology and Biodiversity", targetUrl: "subjects/biology/mcq/chapter_26_ecology_and_biodiversity.html" },
+            { id: "bio-27", titleBn: "জৈবপ্রযুক্তিবিদ্যা", titleEn: "Biotechnology", targetUrl: "subjects/biology/mcq/chapter_27_biotechnology.html" },
+            { id: "bio-28", titleBn: "চিকিৎসাবিজ্ঞানে ব্যবহৃত বিভিন্ন পরীক্ষা পদ্ধতি ও যন্ত্রপাতি এবং আবিষ্কার", titleEn: "Some Tests and Instruments used in Medical Science and Some Discoveries", targetUrl: "subjects/biology/mcq/chapter_28_some_tests_and_instruments_used_in_medical_science_and_some_discoveries.html" },
+            { id: "bio-29", titleBn: "পরিবেশবিদ্যা", titleEn: "Environmental Studies", targetUrl: "subjects/biology/mcq/chapter_29_environmental_studies.html" },
+            { id: "bio-30", titleBn: "বিবিধ", titleEn: "Miscellaneous", targetUrl: "subjects/biology/mcq/chapter_30_miscellaneous.html" }
+          ]
+        },
+        {
+          id: "physics",
+          nameBn: "পদার্থবিদ্যা",
+          nameEn: "Physics",
+          icon: "fa-atom",
+          iconBadge: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30",
+          theme: {
+            cardOpen: ["border-cyan-400/65", "ring-2", "ring-cyan-500/20"],
+            chevronOpen: ["bg-cyan-500/20", "text-cyan-300", "border-cyan-400/40", "rotate-180"],
+            chapterRow: "border-cyan-500/30 hover:border-cyan-400",
+            chapterNum: "bg-cyan-500/15 text-cyan-300 border-cyan-400/30 group-hover:bg-cyan-500/25 group-hover:text-cyan-200 group-hover:border-cyan-400/60",
+            chapterTitle: "group-hover:text-cyan-300",
+            chapterArrow: "bg-cyan-500/15 text-cyan-300 border-cyan-400/30 group-hover:bg-cyan-500 group-hover:text-slate-950 group-hover:border-cyan-400",
+            closeBtn: "hover:border-cyan-400/60",
+            closeIcon: "text-cyan-400"
+          },
+          chapters: [
+            { id: "phy-01", titleBn: "ভৌত বিশ্ব ও পরিমাপ", titleEn: "Physical World and Measurement", targetUrl: "subjects/physics/mcq/chapter_1_physical_world_and_measurement.html" },
+            { id: "phy-02", titleBn: "বল ও গতি", titleEn: "Force and Motion", targetUrl: "subjects/physics/mcq/chapter_2_force_and_motion.html" },
+            { id: "phy-03", titleBn: "পদার্থের সাধারণ ধর্ম", titleEn: "General Properties of Matter", targetUrl: "subjects/physics/mcq/chapter_3_general_properties_of_matter.html" },
+            { id: "phy-04", titleBn: "কার্য, ক্ষমতা, শক্তি ও সরল যন্ত্র", titleEn: "Work, Power, Energy and Simple Machine", targetUrl: "subjects/physics/mcq/chapter_4_work_power_energy_and_simple_machine.html" },
+            { id: "phy-05", titleBn: "তাপ", titleEn: "Heat", targetUrl: "subjects/physics/mcq/chapter_5_heat.html" },
+            { id: "phy-06", titleBn: "কম্পন ও তরঙ্গ", titleEn: "Oscillations and Waves", targetUrl: "subjects/physics/mcq/chapter_6_oscillations_and_waves.html" },
+            { id: "phy-07", titleBn: "আলোকবিজ্ঞান", titleEn: "Optics", targetUrl: "subjects/physics/mcq/chapter_7_optics.html" },
+            { id: "phy-08", titleBn: "তড়িৎবিজ্ঞান", titleEn: "Electricity", targetUrl: "subjects/physics/mcq/chapter_8_electricity.html" },
+            { id: "phy-09", titleBn: "তড়িৎচৌম্বকীয় আবেশ ও পদার্থের চৌম্বক ধর্ম", titleEn: "Electromagnetic Induction and Magnetic Properties of Matter", targetUrl: "subjects/physics/mcq/chapter_9_electromagnetic_induction_and_magnetic_properties_of_matter.html" },
+            { id: "phy-10", titleBn: "আধুনিক পদার্থবিদ্যা ও ইলেকট্রনিক্স", titleEn: "Modern Physics and Electronics", targetUrl: "subjects/physics/mcq/chapter_10_modern_physics_and_electronics.html" }
+          ]
+        },
+        {
+          id: "chemistry",
+          nameBn: "রসায়ন",
+          nameEn: "Chemistry",
+          icon: "fa-flask-vial",
+          iconBadge: "bg-rose-500/15 text-rose-400 border-rose-500/30",
+          theme: {
+            cardOpen: ["border-rose-400/65", "ring-2", "ring-rose-500/20"],
+            chevronOpen: ["bg-rose-500/20", "text-rose-300", "border-rose-400/40", "rotate-180"],
+            chapterRow: "border-rose-500/30 hover:border-rose-400",
+            chapterNum: "bg-rose-500/15 text-rose-300 border-rose-400/30 group-hover:bg-rose-500/25 group-hover:text-rose-200 group-hover:border-rose-400/60",
+            chapterTitle: "group-hover:text-rose-300",
+            chapterArrow: "bg-rose-500/15 text-rose-300 border-rose-400/30 group-hover:bg-rose-500 group-hover:text-white group-hover:border-rose-400",
+            closeBtn: "hover:border-rose-400/60",
+            closeIcon: "text-rose-400"
+          },
+          chapters: [
+            { id: "chm-01", titleBn: "রসায়নের প্রাথমিক ধারণা", titleEn: "Basic Concepts of Chemistry", targetUrl: "subjects/chemistry/mcq/chapter_1_basic_concepts_of_chemistry.html" },
+            { id: "chm-02", titleBn: "পদার্থ ও তার ধর্ম", titleEn: "Matter and Its Properties", targetUrl: "subjects/chemistry/mcq/chapter_2_matter_and_its_properties.html" },
+            { id: "chm-03", titleBn: "পরমাণু ও অণুর ধারণা", titleEn: "Concept of Atoms and Molecules", targetUrl: "subjects/chemistry/mcq/chapter_3_concept_of_atoms_and_molecules.html" },
+            { id: "chm-04", titleBn: "পদার্থের কঠিন অবস্থা", titleEn: "Solid State of Matter", targetUrl: "subjects/chemistry/mcq/chapter_4_solid_state_of_matter.html" },
+            { id: "chm-05", titleBn: "দ্রবণ ও মিশ্রণ", titleEn: "Solution and Mixture", targetUrl: "subjects/chemistry/mcq/chapter_5_solution_and_mixture.html" },
+            { id: "chm-06", titleBn: "পদার্থের গ্যাসীয় অবস্থা", titleEn: "Gaseous State of Matter", targetUrl: "subjects/chemistry/mcq/chapter_6_gaseous_state_of_matter.html" },
+            { id: "chm-07", titleBn: "পৃষ্ঠতলীয় রসায়ন", titleEn: "Surface Chemistry", targetUrl: "subjects/chemistry/mcq/chapter_7_surface_chemistry.html" },
+            { id: "chm-08", titleBn: "অ্যাসিড, ক্ষারক, লবণ ও অক্সাইড", titleEn: "Acid, Base, Salt and Oxide", targetUrl: "subjects/chemistry/mcq/chapter_8_acid_base_salt_and_oxide.html" },
+            { id: "chm-09", titleBn: "জারণ ও বিজারণ", titleEn: "Oxidation and Reduction", targetUrl: "subjects/chemistry/mcq/chapter_9_oxidation_and_reduction.html" },
+            { id: "chm-10", titleBn: "পর্যায়-সারণি", titleEn: "Periodic Table", targetUrl: "subjects/chemistry/mcq/chapter_10_periodic_table.html" },
+            { id: "chm-11", titleBn: "রাসায়নিক বন্ধন ও আণবিক গঠন", titleEn: "Chemical Bonding and Molecular Structure", targetUrl: "subjects/chemistry/mcq/chapter_11_chemical_bonding_and_molecular_structure.html" },
+            { id: "chm-12", titleBn: "তড়িৎবিশ্লেষণ ও তড়িৎ রসায়ন", titleEn: "Electrolysis & Electrochemistry", targetUrl: "subjects/chemistry/mcq/chapter_12_electrolysis_and_electrochemistry.html" },
+            { id: "chm-13", titleBn: "তাপগতিবিদ্যা", titleEn: "Thermodynamics", targetUrl: "subjects/chemistry/mcq/chapter_13_thermodynamics.html" },
+            { id: "chm-14", titleBn: "অজৈব রসায়ন", titleEn: "Inorganic Chemistry", targetUrl: "subjects/chemistry/mcq/chapter_14_inorganic_chemistry.html" },
+            { id: "chm-15", titleBn: "ধাতুবিদ্যা", titleEn: "Metallurgy", targetUrl: "subjects/chemistry/mcq/chapter_15_metallurgy.html" },
+            { id: "chm-16", titleBn: "জৈব রসায়ন", titleEn: "Organic Chemistry", targetUrl: "subjects/chemistry/mcq/chapter_16_organic_chemistry.html" },
+            { id: "chm-17", titleBn: "প্রাত্যহিক জীবনে রসায়ন", titleEn: "Chemistry in Daily Life", targetUrl: "subjects/chemistry/mcq/chapter_17_chemistry_in_daily_life.html" }
+          ]
+        },
+        {
+          id: "computer",
+          nameBn: "কম্পিউটার",
+          nameEn: "Computer & IT",
+          icon: "fa-laptop-code",
+          iconBadge: "bg-indigo-500/15 text-indigo-400 border-indigo-500/30",
+          theme: {
+            cardOpen: ["border-indigo-400/65", "ring-2", "ring-indigo-500/20"],
+            chevronOpen: ["bg-indigo-500/20", "text-indigo-300", "border-indigo-400/40", "rotate-180"],
+            chapterRow: "border-indigo-500/30 hover:border-indigo-400",
+            chapterNum: "bg-indigo-500/15 text-indigo-300 border-indigo-400/30 group-hover:bg-indigo-500/25 group-hover:text-indigo-200 group-hover:border-indigo-400/60",
+            chapterTitle: "group-hover:text-indigo-300",
+            chapterArrow: "bg-indigo-500/15 text-indigo-300 border-indigo-400/30 group-hover:bg-indigo-500 group-hover:text-white group-hover:border-indigo-400",
+            closeBtn: "hover:border-indigo-400/60",
+            closeIcon: "text-indigo-400"
+          },
+          chapters: [
+            { id: "cmp-01", titleBn: "কম্পিউটার সম্পর্কিত সাধারণ জ্ঞান, তথ্যপ্রযুক্তি ও তার পরিভাষা", titleEn: "Basic Knowledge about Computer Technology and Its Definition", targetUrl: "subjects/computer/mcq/chapter_1_basic_knowledge_about_computer_technology_and_its_definition.html" },
+            { id: "cmp-02", titleBn: "কম্পিউটার হার্ডওয়্যার এবং সফটওয়্যার", titleEn: "Computer Hardware and Software", targetUrl: "subjects/computer/mcq/chapter_2_computer_hardware_and_software.html" },
+            { id: "cmp-03", titleBn: "কম্পিউটার মেমরি", titleEn: "Computer Memory", targetUrl: "subjects/computer/mcq/chapter_3_computer_memory.html" },
+            { id: "cmp-04", titleBn: "কম্পিউটার সম্বন্ধীয় লজিক গেট এবং কম্বিনেশনাল সার্কিট", titleEn: "Computer Logic Gate and Combinational Circuit", targetUrl: "subjects/computer/mcq/chapter_4_computer_logic_gate_and_combinational_circuit.html" },
+            { id: "cmp-05", titleBn: "কম্পিউটার নাম্বার সিস্টেম", titleEn: "Computer Number System", targetUrl: "subjects/computer/mcq/chapter_5_computer_number_system.html" },
+            { id: "cmp-06", titleBn: "কম্পিউটার অপারেটিং সিস্টেম", titleEn: "Computer Operating System", targetUrl: "subjects/computer/mcq/chapter_6_computer_operating_system.html" },
+            { id: "cmp-07", titleBn: "কম্পিউটার ল্যাঙ্গুয়েজ", titleEn: "Computer Language", targetUrl: "subjects/computer/mcq/chapter_7_computer_language.html" },
+            { id: "cmp-08", titleBn: "ডাটাবেস ম্যানেজমেন্ট সিস্টেম", titleEn: "Database Management System", targetUrl: "subjects/computer/mcq/chapter_8_database_management_system.html" },
+            { id: "cmp-09", titleBn: "নেটওয়ার্কিং এবং তার পরিভাষা", titleEn: "Networking and Its Definition", targetUrl: "subjects/computer/mcq/chapter_9_networking_and_its_definition.html" },
+            { id: "cmp-10", titleBn: "ইন্টারনেট এবং সোশ্যাল নেটওয়ার্কিং", titleEn: "Internet and Social Networking", targetUrl: "subjects/computer/mcq/chapter_10_internet_and_social_networking.html" },
+            { id: "cmp-11", titleBn: "কম্পিউটার ভাইরাস এবং অ্যান্টিভাইরাস", titleEn: "Computer Virus and Antivirus", targetUrl: "subjects/computer/mcq/chapter_11_computer_virus_and_antivirus.html" },
+            { id: "cmp-12", titleBn: "সাইবার ক্রাইম এবং সিকিউরিটি", titleEn: "Cyber Crime and Security", targetUrl: "subjects/computer/mcq/chapter_12_cyber_crime_and_security.html" },
+            { id: "cmp-13", titleBn: "কমিউনিকেশন টেকনোলজি ও ডাটা ট্রান্সমিশন", titleEn: "Communication Technology and Data Transmission", targetUrl: "subjects/computer/mcq/chapter_13_communication_technology_and_data_transmission.html" },
+            { id: "cmp-14", titleBn: "মোবাইল ফোনের বিবর্তন", titleEn: "Evolution of Mobile Phone", targetUrl: "subjects/computer/mcq/chapter_14_evolution_of_mobile_phone.html" },
+            { id: "cmp-15", titleBn: "রোবটিক্স সম্পর্কিত তথ্য", titleEn: "Information about Robotics", targetUrl: "subjects/computer/mcq/chapter_15_information_about_robotics.html" },
+            { id: "cmp-16", titleBn: "গ্রাফিক্স এবং ন্যানোটেকনোলজি", titleEn: "Graphics and Nanotechnology", targetUrl: "subjects/computer/mcq/chapter_16_graphics_and_nanotechnology.html" }
+          ]
+        },
+        {
+          id: "generalknowledge",
+          nameBn: "সাধারণ জ্ঞান",
+          nameEn: "General Knowledge & Static GK",
+          icon: "fa-book-open-reader",
+          iconBadge: "bg-orange-500/15 text-orange-400 border-orange-500/30",
+          theme: {
+            cardOpen: ["border-orange-400/65", "ring-2", "ring-orange-500/20"],
+            chevronOpen: ["bg-orange-500/20", "text-orange-300", "border-orange-400/40", "rotate-180"],
+            chapterRow: "border-orange-500/30 hover:border-orange-400",
+            chapterNum: "bg-orange-500/15 text-orange-300 border-orange-400/30 group-hover:bg-orange-500/25 group-hover:text-orange-200 group-hover:border-orange-400/60",
+            chapterTitle: "group-hover:text-orange-300",
+            chapterArrow: "bg-orange-500/15 text-orange-300 border-orange-400/30 group-hover:bg-orange-500 group-hover:text-slate-950 group-hover:border-orange-400",
+            closeBtn: "hover:border-orange-400/60",
+            closeIcon: "text-orange-400"
+          },
+          chapters: [
+            { id: "gk-01", titleBn: "খেলাধুলা", titleEn: "Sports", targetUrl: "subjects/general_knowledge/mcq/chapter_1_sports.html" },
+            { id: "gk-02", titleBn: "পুরস্কার", titleEn: "Award", targetUrl: "subjects/general_knowledge/mcq/chapter_2_award.html" },
+            { id: "gk-03", titleBn: "বিজ্ঞান ও প্রযুক্তি", titleEn: "Science and Technology", targetUrl: "subjects/general_knowledge/mcq/chapter_3_science_and_technology.html" },
+            { id: "gk-04", titleBn: "কলা, সংস্কৃতি, স্থাপত্য ও ভাস্কর্য", titleEn: "Art, Culture, Architecture and Sculpture", targetUrl: "subjects/general_knowledge/mcq/chapter_4_art_culture_architecture_and_sculpture.html" },
+            { id: "gk-05", titleBn: "চলচ্চিত্র, বেতার, টেলিভিশন", titleEn: "Film, Radio, Television", targetUrl: "subjects/general_knowledge/mcq/chapter_5_film_radio_television.html" },
+            { id: "gk-06", titleBn: "সাহিত্যের অতীত ও বর্তমান", titleEn: "Past & Present of Literature", targetUrl: "subjects/general_knowledge/mcq/chapter_6_past_and_present_of_literature.html" },
+            { id: "gk-07", titleBn: "আন্তর্জাতিক প্রতিষ্ঠানসমূহ", titleEn: "International Organisations", targetUrl: "subjects/general_knowledge/mcq/chapter_7_international_organisations.html" },
+            { id: "gk-08", titleBn: "গুরুত্বপূর্ণ দিবস, বর্ষ, সপ্তাহ", titleEn: "Important Dates, Years, Weeks", targetUrl: "subjects/general_knowledge/mcq/chapter_8_important_dates_years_weeks.html" },
+            { id: "gk-09", titleBn: "দেশ, রাজধানী, ভাষা, মুদ্রা", titleEn: "Country, Capital, Language, Currency", targetUrl: "subjects/general_knowledge/mcq/chapter_9_country_capital_language_currency.html" },
+            { id: "gk-10", titleBn: "বিভিন্ন ক্ষেত্রে প্রথম", titleEn: "First in Various Case", targetUrl: "subjects/general_knowledge/mcq/chapter_10_first_in_various_case.html" },
+            { id: "gk-11", titleBn: "উচ্চতম-দীর্ঘতম-বৃহত্তম", titleEn: "Superlative", targetUrl: "subjects/general_knowledge/mcq/chapter_11_superlative.html" },
+            { id: "gk-12", titleBn: "জাতীয় বিষয়সমূহ", titleEn: "National Subjects", targetUrl: "subjects/general_knowledge/mcq/chapter_12_national_subjects.html" },
+            { id: "gk-13", titleBn: "সাধারণ জ্ঞানের পাঁচমিশালি", titleEn: "Miscellaneous", targetUrl: "subjects/general_knowledge/mcq/chapter_13_miscellaneous.html" }
+          ]
+        },
+        {
+          id: "currentaffairs",
+          nameBn: "সাম্প্রতিক ঘটনাবলি",
+          nameEn: "Current Affairs",
+          icon: "fa-newspaper",
+          iconBadge: "bg-red-500/15 text-red-400 border-red-500/30",
+          theme: {
+            cardOpen: ["border-red-400/65", "ring-2", "ring-red-500/20"],
+            chevronOpen: ["bg-red-500/20", "text-red-300", "border-red-400/40", "rotate-180"],
+            chapterRow: "border-red-500/30 hover:border-red-400",
+            chapterNum: "bg-red-500/15 text-red-300 border-red-400/30 group-hover:bg-red-500/25 group-hover:text-red-200 group-hover:border-red-400/60",
+            chapterTitle: "group-hover:text-red-300",
+            chapterArrow: "bg-red-500/15 text-red-300 border-red-400/30 group-hover:bg-red-500 group-hover:text-white group-hover:border-red-400",
+            closeBtn: "hover:border-red-400/60",
+            closeIcon: "text-red-400"
+          },
+          chapters: [
+            { id: "ca-01", titleBn: "জাতীয় ও আন্তর্জাতিক সাম্প্রতিক ঘটনাবলি", titleEn: "National and International Current Affairs", targetUrl: "subjects/current_affairs/mcq/chapter_1_national_and_international_current_affairs.html" },
+            { id: "ca-02", titleBn: "সাম্প্রতিক সরকারি প্রকল্প, নীতি ও পোর্টাল", titleEn: "Recent Government Schemes, Policies and Portals", targetUrl: "subjects/current_affairs/mcq/chapter_2_recent_government_schemes_policies_and_portals.html" },
+            { id: "ca-03", titleBn: "সামিট, সম্মেলন ও বৈঠক", titleEn: "Summits, Conferences and Meetings", targetUrl: "subjects/current_affairs/mcq/chapter_3_summits_conferences_and_meetings.html" },
+            { id: "ca-04", titleBn: "সামরিক মহড়া ও প্রতিরক্ষা সংক্রান্ত ঘটনাবলি", titleEn: "Military Exercises and Defence Affairs", targetUrl: "subjects/current_affairs/mcq/chapter_4_military_exercises_and_defence_affairs.html" },
+            { id: "ca-05", titleBn: "মহাকাশ গবেষণা, বিজ্ঞান ও প্রযুক্তিগত অগ্রগতি", titleEn: "Space Missions, Science and Technology Advancements", targetUrl: "subjects/current_affairs/mcq/chapter_5_space_missions_science_and_technology_advancements.html" },
+            { id: "ca-06", titleBn: "সাম্প্রতিক নিয়োগ ও পদাধিকারী ব্যক্তিগণ", titleEn: "Recent Appointments and Key Dignitaries", targetUrl: "subjects/current_affairs/mcq/chapter_6_recent_appointments_and_key_dignitaries.html" },
+            { id: "ca-07", titleBn: "পদত্যাগ ও প্রয়াত বিশিষ্ট ব্যক্তিবর্গ", titleEn: "Resignations and Recent Obits", targetUrl: "subjects/current_affairs/mcq/chapter_7_resignations_and_recent_obits.html" },
+            { id: "ca-08", titleBn: "সাম্প্রতিক পুরস্কার ও সম্মাননা", titleEn: "Recent Awards and Honours", targetUrl: "subjects/current_affairs/mcq/chapter_8_recent_awards_and_honours.html" },
+            { id: "ca-09", titleBn: "খেলাধুলা সংক্রান্ত সাম্প্রতিক ঘটনাবলি ও টুর্নামেন্ট", titleEn: "Sports Current Affairs and Tournaments", targetUrl: "subjects/current_affairs/mcq/chapter_9_sports_current_affairs_and_tournaments.html" },
+            { id: "ca-10", titleBn: "সাম্প্রতিক প্রকাশিত বই ও লেখক", titleEn: "Recent Books and Authors", targetUrl: "subjects/current_affairs/mcq/chapter_10_recent_books_and_authors.html" },
+            { id: "ca-11", titleBn: "আন্তর্জাতিক সূচক ও ভারতের অবস্থান", titleEn: "Global Indexes and India's Rank", targetUrl: "subjects/current_affairs/mcq/chapter_11_global_indexes_and_indias_rank.html" },
+            { id: "ca-12", titleBn: "গুরুত্বপূর্ণ সাম্প্রতিক চুক্তি ও সমঝোতা স্মারক", titleEn: "Key MoUs and Bilateral Agreements", targetUrl: "subjects/current_affairs/mcq/chapter_12_key_mous_and_bilateral_agreements.html" },
+            { id: "ca-13", titleBn: "ব্যাংকিং, অর্থ ও বাণিজ্যিক সাম্প্রতিক তথ্যাবলি", titleEn: "Banking, Financial and Economy Updates", targetUrl: "subjects/current_affairs/mcq/chapter_13_banking_financial_and_economy_updates.html" },
+            { id: "ca-14", titleBn: "পরিবেশ, আবহাওয়া ও দুর্যোগ সংক্রান্ত ঘটনাবলি", titleEn: "Environment, Climate and Disaster Management Affairs", targetUrl: "subjects/current_affairs/mcq/chapter_14_environment_climate_and_disaster_management_affairs.html" },
+            { id: "ca-15", titleBn: "পশ্চিমবঙ্গের সাম্প্রতিক ঘটনাবলি ও রাজ্য প্রকল্প", titleEn: "West Bengal Current Affairs and State Schemes", targetUrl: "subjects/current_affairs/mcq/chapter_15_west_bengal_current_affairs_and_state_schemes.html" },
+            { id: "ca-16", titleBn: "সাম্প্রতিক জিআই ট্যাগ ও ঐতিহ্যবাহী স্থান", titleEn: "Recent GI Tags and Heritage Sites", targetUrl: "subjects/current_affairs/mcq/chapter_16_recent_gi_tags_and_heritage_sites.html" },
+            { id: "ca-17", titleBn: "গুরুত্বপূর্ণ সাম্প্রতিক দিবস ও প্রতিপাদ্য বিষয়", titleEn: "Important Days and Themes", targetUrl: "subjects/current_affairs/mcq/chapter_17_important_days_and_themes.html" },
+            { id: "ca-18", titleBn: "সাম্প্রতিক বিবিধ ঘটনাবলি", titleEn: "Miscellaneous Current Affairs", targetUrl: "subjects/current_affairs/mcq/chapter_18_miscellaneous_current_affairs.html" }
+          ]
+        },
+        {
+          id: "pyq",
+          nameBn: "বিগত বছরের প্রশ্নপত্র",
+          nameEn: "Previous Year Question Papers",
+          icon: "fa-file-circle-question",
+          iconBadge: "bg-sky-500/15 text-sky-400 border-sky-500/30",
+          theme: {
+            cardOpen: ["border-sky-400/65", "ring-2", "ring-sky-500/20"],
+            chevronOpen: ["bg-sky-500/20", "text-sky-300", "border-sky-400/40", "rotate-180"],
+            chapterRow: "border-sky-500/30 hover:border-sky-400",
+            chapterNum: "bg-sky-500/15 text-sky-300 border-sky-400/30 group-hover:bg-sky-500/25 group-hover:text-sky-200 group-hover:border-sky-400/60",
+            chapterTitle: "group-hover:text-sky-300",
+            chapterArrow: "bg-sky-500/15 text-sky-300 border-sky-400/30 group-hover:bg-sky-500 group-hover:text-slate-950 group-hover:border-sky-400",
+            closeBtn: "hover:border-sky-400/60",
+            closeIcon: "text-sky-400"
+          },
+          chapters: [
+            { id: "pyq-01", titleBn: "SSC CGL প্রশ্নপত্র", titleEn: "SSC CGL", targetUrl: "subjects/previous_year/mcq/chapter_1_ssc_cgl.html" },
+            { id: "pyq-02", titleBn: "SSC CHSL প্রশ্নপত্র", titleEn: "SSC CHSL", targetUrl: "subjects/previous_year/mcq/chapter_2_ssc_chsl.html" },
+            { id: "pyq-03", titleBn: "SSC MTS প্রশ্নপত্র", titleEn: "SSC MTS", targetUrl: "subjects/previous_year/mcq/chapter_3_ssc_mts.html" },
+            { id: "pyq-04", titleBn: "RRB GROUP D প্রশ্নপত্র", titleEn: "RRB GROUP D", targetUrl: "subjects/previous_year/mcq/chapter_4_rrb_group_d.html" },
+            { id: "pyq-05", titleBn: "RRB NTPC প্রশ্নপত্র", titleEn: "RRB NTPC", targetUrl: "subjects/previous_year/mcq/chapter_5_rrb_ntpc.html" },
+            { id: "pyq-06", titleBn: "WBCS প্রশ্নপত্র", titleEn: "WBCS", targetUrl: "subjects/previous_year/mcq/chapter_6_wbcs.html" },
+            { id: "pyq-07", titleBn: "WBPSC প্রশ্নপত্র", titleEn: "WBPSC", targetUrl: "subjects/previous_year/mcq/chapter_7_wbpsc.html" },
+            { id: "pyq-08", titleBn: "WB POLICE প্রশ্নপত্র", titleEn: "WB POLICE", targetUrl: "subjects/previous_year/mcq/chapter_8_wb_police.html" }
+          ]
+        }
+      ];
+
+      /**
+       * Unified Single-Section Application State
+       */
+      const appState = {
+        expandedSubjectId: null,
+        searchQuery: '',
+        searchMatches: [],
+        activeMatchIndex: -1,
+        isDrawerOpen: false
+      };
+
+      /**
+       * Fast Reference Cache (Avoids repeated DOM queries across 214 chapter rows)
+       */
+      const subjectRefs = new Map();
+
+      const dom = {
+        siteHeader: document.getElementById('site-header'),
+        searchBarWrapper: document.getElementById('search-bar-wrapper'),
+        searchInputBox: document.getElementById('search-input-box'),
+        searchInput: document.getElementById('search-input'),
+        searchKbdHint: document.getElementById('search-kbd-hint'),
+        searchNavControls: document.getElementById('search-nav-controls'),
+        searchMatchCount: document.getElementById('search-match-count'),
+        searchPrevBtn: document.getElementById('search-prev-btn'),
+        searchNextBtn: document.getElementById('search-next-btn'),
+        searchClearBtn: document.getElementById('search-clear-btn'),
+        btnMenu: document.getElementById('btn-menu'),
+        btnMenuClose: document.getElementById('btn-menu-close'),
+        menuBackdrop: document.getElementById('menu-backdrop'),
+        slideMenu: document.getElementById('slide-menu'),
+        drawerTotalSubjects: document.getElementById('drawer-total-subjects'),
+        drawerTotalChapters: document.getElementById('drawer-total-chapters'),
+        drawerSubjectsList: document.getElementById('drawer-subjects-list'),
+        subjectsContainer: document.getElementById('subjects-container'),
+        emptySearch: document.getElementById('empty-search'),
+        btnResetSearch: document.getElementById('btn-reset-search')
+      };
+
+      /**
+       * Safe Dual-Layer Persistence Helpers (sessionStorage + localStorage)
+       * Wrapped in individual try/catch blocks so file://, mobile browsers,
+       * private modes, and sandboxed previews never throw errors.
+       */
+      function saveExpandedSubject(id) {
+        const subjectId = id ? String(id) : '';
+
+        try {
+          if (subjectId) {
+            window.sessionStorage.setItem(STORAGE_KEY_EXPANDED_SUBJECT, subjectId);
+          } else {
+            window.sessionStorage.removeItem(STORAGE_KEY_EXPANDED_SUBJECT);
+          }
+        } catch (_) {
+          // Ignore storage unavailability
+        }
+
+        try {
+          if (subjectId) {
+            window.localStorage.setItem(STORAGE_KEY_EXPANDED_SUBJECT, subjectId);
+          } else {
+            window.localStorage.removeItem(STORAGE_KEY_EXPANDED_SUBJECT);
+          }
+        } catch (_) {
+          // Ignore storage unavailability
+        }
+      }
+
+      function loadExpandedSubject() {
+        try {
+          const sessionId = window.sessionStorage.getItem(STORAGE_KEY_EXPANDED_SUBJECT);
+          if (sessionId) return sessionId;
+        } catch (_) {
+          // Ignore storage unavailability
+        }
+
+        try {
+          const localId = window.localStorage.getItem(STORAGE_KEY_EXPANDED_SUBJECT);
+          if (localId) return localId;
+        } catch (_) {
+          // Ignore storage unavailability
+        }
+
+        return null;
+      }
+
+      /**
+       * Synchronously restores the persisted expanded subject (zero flicker)
+       */
+      function restoreExpandedSubjectFromStorage() {
+        if (appState.searchQuery.trim() !== '') return;
+
+        const savedId = loadExpandedSubject();
+        if (savedId && subjectRefs.has(savedId)) {
+          if (appState.expandedSubjectId && appState.expandedSubjectId !== savedId) {
+            setCardExpandedState(appState.expandedSubjectId, false);
+          }
+          appState.expandedSubjectId = savedId;
+          setCardExpandedState(savedId, true);
+        } else if (appState.expandedSubjectId && subjectRefs.has(appState.expandedSubjectId)) {
+          // Preserve in-memory state if storage is disabled (e.g., strict sandbox + bfcache)
+          setCardExpandedState(appState.expandedSubjectId, true);
+        }
+      }
+
+      /**
+       * Digit Conversion, Unicode NFC Normalization & XSS-Safe Highlighting Helpers
+       */
+      const BN_DIGITS = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      const BN_TO_EN_DIGIT_MAP = {
+        '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4',
+        '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9'
+      };
+      const EN_TO_DIGIT_CLASS = [
+        '[0০]', '[1১]', '[2২]', '[3৩]', '[4৪]',
+        '[5৫]', '[6৬]', '[7৭]', '[8৮]', '[9৯]'
+      ];
+
+      function toBengaliNumber(num) {
+        return String(num).replace(/\d/g, (d) => BN_DIGITS[Number(d)]);
+      }
+
+      function bnDigitsToEn(str) {
+        return String(str || '').replace(/[০-৯]/g, (d) => BN_TO_EN_DIGIT_MAP[d] || d);
+      }
+
+      /**
+       * Normalizes Bengali & English text for accurate multi-token search:
+       * - Unicode NFC normalization
+       * - Lowercase
+       * - Bengali digits (০-৯) -> English digits (0-9)
+       * - Punctuation folded into single spaces
+       */
+      function normalizeForSearch(str) {
+        return bnDigitsToEn(String(str || '').normalize('NFC').toLowerCase())
+          .replace(/[-–—.,;:'"()\[\]{}/\\&•।?!]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function escapeRegex(str) {
+        return String(str || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      /**
+       * Builds a digit-aware Unicode regex matching any of the normalized query tokens
+       */
+      function buildHighlightRegex(tokens) {
+        if (!tokens || tokens.length === 0) return null;
+        const uniqueSorted = Array.from(new Set(tokens))
+          .filter(Boolean)
+          .sort((a, b) => b.length - a.length);
+        if (uniqueSorted.length === 0) return null;
+
+        const pattern = uniqueSorted
+          .map((tok) =>
+            escapeRegex(tok).replace(/\d/g, (d) => EN_TO_DIGIT_CLASS[Number(d)])
+          )
+          .join('|');
+
+        return new RegExp(pattern, 'gi');
+      }
+
+      /**
+       * Safely highlights matched terms in plain text without XSS risk
+       */
+      function renderHighlightedHtml(plainText, highlightRegex) {
+        const normalized = String(plainText || '').normalize('NFC');
+        if (!highlightRegex) return escapeHtml(normalized);
+
+        highlightRegex.lastIndex = 0;
+        let html = '';
+        let lastIndex = 0;
+        let match;
+
+        while ((match = highlightRegex.exec(normalized)) !== null) {
+          if (match[0].length === 0) {
+            highlightRegex.lastIndex++;
+            continue;
+          }
+          if (match.index > lastIndex) {
+            html += escapeHtml(normalized.slice(lastIndex, match.index));
+          }
+          html += `<mark class="search-hl">${escapeHtml(match[0])}</mark>`;
+          lastIndex = highlightRegex.lastIndex;
+        }
+
+        if (lastIndex < normalized.length) {
+          html += escapeHtml(normalized.slice(lastIndex));
+        }
+
+        return html;
+      }
+
+      function getStickyScrollOffset() {
+        const headerH = dom.siteHeader ? dom.siteHeader.offsetHeight : 84;
+        const searchH = dom.searchBarWrapper ? dom.searchBarWrapper.offsetHeight : 50;
+        return headerH + searchH + 14;
+      }
+
+      /**
+       * Slide-Over Drawer Controls with Accessibility (aria-hidden & Focus Restoration)
+       */
+      function openDrawer() {
+        if (appState.isDrawerOpen) return;
+        appState.isDrawerOpen = true;
+        dom.btnMenu.setAttribute('aria-expanded', 'true');
+        dom.slideMenu.setAttribute('aria-hidden', 'false');
+        dom.menuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+        dom.menuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+        dom.slideMenu.classList.remove('translate-x-full');
+        dom.slideMenu.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer(restoreFocus = false) {
+        if (!appState.isDrawerOpen) return;
+        appState.isDrawerOpen = false;
+        dom.btnMenu.setAttribute('aria-expanded', 'false');
+        dom.slideMenu.setAttribute('aria-hidden', 'true');
+        dom.menuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+        dom.menuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        dom.slideMenu.classList.remove('translate-x-0');
+        dom.slideMenu.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+        if (restoreFocus && dom.btnMenu) {
+          dom.btnMenu.focus();
+        }
+      }
+
+      /**
+       * Build Slide-Over Drawer Contents Once via DocumentFragment
+       * Preserves per-subject chapter count badges and clean summary stat cards.
+       */
+      function buildDrawerMenu() {
+        const totalSubjects = GK_DATABASE.length;
+        const totalChapters = GK_DATABASE.reduce((sum, subj) => sum + subj.chapters.length, 0);
+
+        dom.drawerTotalSubjects.innerHTML = `<span>${toBengaliNumber(totalSubjects)}</span><span class="text-xs font-medium text-[#cbd5e1]">টি</span>`;
+        dom.drawerTotalChapters.innerHTML = `<span>${toBengaliNumber(totalChapters)}</span><span class="text-xs font-medium text-[#cbd5e1]">টি</span>`;
+
+        const frag = document.createDocumentFragment();
+
+        GK_DATABASE.forEach((subject) => {
+          const itemBtn = document.createElement('button');
+          itemBtn.type = 'button';
+          itemBtn.dataset.drawerSubjectId = subject.id;
+          itemBtn.className = "w-full p-2.5 rounded-xl bg-[#131c2e] hover:bg-[#22304d] border border-[#2b3b59] hover:border-amber-400/40 flex items-center justify-between gap-2.5 text-left transition-colors cursor-pointer group active:scale-[0.99]";
+
+          itemBtn.innerHTML = `
+            <div class="flex items-center gap-2.5 min-w-0">
+              <span class="w-8 h-8 rounded-lg ${subject.iconBadge} border flex items-center justify-center text-xs flex-shrink-0">
+                <i class="fa-solid ${subject.icon}" aria-hidden="true"></i>
+              </span>
+              <span class="text-xs sm:text-sm font-semibold text-[#f1f5f9] group-hover:text-amber-300 truncate transition-colors">
+                ${escapeHtml(subject.nameBn)}
+              </span>
+            </div>
+            <span class="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-[#1d2940] text-[#cbd5e1] border border-[#2b3b59] flex-shrink-0">
+              ${toBengaliNumber(subject.chapters.length)}টি অধ্যায়
+            </span>
+          `;
+
+          frag.appendChild(itemBtn);
+        });
+
+        dom.drawerSubjectsList.replaceChildren(frag);
+      }
+
+      /**
+       * Instant, Zero-Glitch Accordion Expand/Collapse using hidden attribute + cached refs
+       */
+      function setCardExpandedState(subjectId, expanded) {
+        const ref = subjectRefs.get(subjectId);
+        if (!ref) return;
+
+        const { card, headerBtn, chevronWrap, panel, theme } = ref;
+
+        if (expanded) {
+          card.classList.remove('border-[#2b3b59]');
+          card.classList.add(...theme.cardOpen);
+          headerBtn.setAttribute('aria-expanded', 'true');
+          chevronWrap.classList.remove('bg-[#131c2e]', 'text-[#94a3b8]', 'border-[#2b3b59]');
+          chevronWrap.classList.add(...theme.chevronOpen);
+          panel.hidden = false;
+        } else {
+          card.classList.remove(...theme.cardOpen);
+          card.classList.add('border-[#2b3b59]');
+          headerBtn.setAttribute('aria-expanded', 'false');
+          chevronWrap.classList.remove(...theme.chevronOpen);
+          chevronWrap.classList.add('bg-[#131c2e]', 'text-[#94a3b8]', 'border-[#2b3b59]');
+          panel.hidden = true;
+        }
+      }
+
+      /**
+       * Toggle Subject Accordion with Persistent State:
+       * - Clicking another subject collapses the previous one, opens the new one, and persists the new subjectId.
+       * - Clicking the currently open subject collapses it manually and clears storage.
+       * - Anchors viewport position synchronously when an upper card closes so there is ZERO scroll jump.
+       */
+      function toggleSubject(subjectId) {
+        if (appState.searchQuery.trim() !== '') return;
+
+        const ref = subjectRefs.get(subjectId);
+        if (!ref) return;
+
+        const prevExpandedId = appState.expandedSubjectId;
+        const willExpand = prevExpandedId !== subjectId;
+
+        const beforeTop = ref.card.getBoundingClientRect().top;
+
+        if (prevExpandedId && prevExpandedId !== subjectId) {
+          setCardExpandedState(prevExpandedId, false);
+        }
+
+        appState.expandedSubjectId = willExpand ? subjectId : null;
+        setCardExpandedState(subjectId, willExpand);
+        saveExpandedSubject(appState.expandedSubjectId);
+
+        // Instant synchronous scroll-offset compensation (zero RAF jitter)
+        const afterTop = ref.card.getBoundingClientRect().top;
+        const delta = afterTop - beforeTop;
+        if (Math.abs(delta) > 1) {
+          window.scrollBy(0, delta);
+        }
+      }
+
+      /**
+       * Closes an open subject via bottom "বন্ধ করুন" button, clears persisted storage,
+       * and scrolls cleanly back to its header.
+       */
+      function closeSubjectAndScrollToCard(subjectId) {
+        if (appState.searchQuery.trim() !== '') return;
+        const ref = subjectRefs.get(subjectId);
+        if (!ref) return;
+
+        setCardExpandedState(subjectId, false);
+        if (appState.expandedSubjectId === subjectId) {
+          appState.expandedSubjectId = null;
+        }
+        saveExpandedSubject(null);
+
+        const targetY = window.scrollY + ref.card.getBoundingClientRect().top - getStickyScrollOffset();
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+      }
+
+      /**
+       * Builds all 11 Subject Cards & 214 Chapter Rows ONCE using DocumentFragment.
+       * Homepage subject headers intentionally omit chapter count badges for a clean look.
+       * Each chapter link carries data-chapter-subject so clicking it persists its parent subject.
+       */
+      function buildSubjectsDOM() {
+        const frag = document.createDocumentFragment();
+        subjectRefs.clear();
+
+        GK_DATABASE.forEach((subject) => {
+          const card = document.createElement('div');
+          card.id = `subject-card-${subject.id}`;
+          card.className = "bg-[#1d2940] rounded-2xl border border-[#2b3b59] shadow-sm transition-colors duration-150 overflow-hidden";
+
+          // Subject Header Button (clean layout without chapter count badge)
+          const headerBtn = document.createElement('div');
+          headerBtn.setAttribute('role', 'button');
+          headerBtn.setAttribute('tabindex', '0');
+          headerBtn.setAttribute('aria-expanded', 'false');
+          headerBtn.dataset.toggleSubject = subject.id;
+          headerBtn.className = "p-4 sm:p-5 flex items-center justify-between gap-3.5 cursor-pointer select-none hover:bg-[#23314d] transition-colors duration-150";
+
+          headerBtn.innerHTML = `
+            <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
+              <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${subject.iconBadge} border flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
+                <i class="fa-solid ${subject.icon}" aria-hidden="true"></i>
+              </div>
+
+              <div class="min-w-0">
+                <h2 class="subject-title-bn text-base sm:text-lg md:text-xl font-bold text-[#f1f5f9] leading-tight">
+                  ${escapeHtml(subject.nameBn)}
+                </h2>
+                <p class="subject-title-en text-xs sm:text-sm font-latin font-medium text-[#94a3b8] truncate mt-0.5">
+                  ${escapeHtml(subject.nameEn)}
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center flex-shrink-0">
+              <span class="subject-chevron-wrap w-9 h-9 rounded-xl bg-[#131c2e] text-[#94a3b8] border border-[#2b3b59] flex items-center justify-center transition-transform duration-200">
+                <i class="fa-solid fa-chevron-down text-xs sm:text-sm" aria-hidden="true"></i>
+              </span>
+            </div>
+          `;
+
+          card.appendChild(headerBtn);
+
+          // Collapsible Subject Panel (hidden when closed -> zero layout/paint cost)
+          const panel = document.createElement('div');
+          panel.hidden = true;
+          panel.className = "subject-panel border-t border-[#2b3b59] bg-[#141d30] p-3 sm:p-4";
+
+          const chaptersList = document.createElement('div');
+          chaptersList.className = "space-y-2";
+
+          const chapterRows = [];
+          const subjectNormalized = normalizeForSearch(`${subject.nameBn} ${subject.nameEn}`);
+
+          subject.chapters.forEach((ch, idx) => {
+            const chapterNum = idx + 1;
+            const numStr = String(chapterNum);
+            const numPadded = numStr.padStart(2, '0');
+
+            const chItem = document.createElement('a');
+            chItem.href = ch.targetUrl;
+            chItem.dataset.chapterSubject = subject.id;
+            chItem.className = `group block bg-[#1d2940] hover:bg-[#23314d] p-3 sm:p-3.5 rounded-xl border ${subject.theme.chapterRow} transition-colors duration-150`;
+
+            chItem.innerHTML = `
+              <div class="flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 min-w-0 flex-1">
+                  <span class="chapter-num w-7 h-7 sm:w-8 sm:h-8 rounded-lg border ${subject.theme.chapterNum} font-latin font-bold text-xs sm:text-sm flex items-center justify-center flex-shrink-0 transition-colors">
+                    ${chapterNum}
+                  </span>
+
+                  <div class="min-w-0 flex-1">
+                    <h3 class="chapter-title-bn text-xs sm:text-sm md:text-base font-bold text-[#f1f5f9] ${subject.theme.chapterTitle} transition-colors leading-snug">
+                      ${escapeHtml(ch.titleBn)}
+                    </h3>
+                    <p class="chapter-title-en text-[11px] sm:text-xs font-latin text-[#94a3b8] truncate mt-0.5">
+                      ${escapeHtml(ch.titleEn)}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-center flex-shrink-0">
+                  <span class="w-8 h-8 rounded-xl border ${subject.theme.chapterArrow} flex items-center justify-center transition-colors duration-150">
+                    <i class="fa-solid fa-chevron-right text-xs transition-transform duration-150 group-hover:translate-x-0.5" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            `;
+
+            chaptersList.appendChild(chItem);
+
+            const chapterNormalized = normalizeForSearch(`${ch.titleBn} ${ch.titleEn}`);
+
+            chapterRows.push({
+              el: chItem,
+              numEl: chItem.querySelector('.chapter-num'),
+              titleBnEl: chItem.querySelector('.chapter-title-bn'),
+              titleEnEl: chItem.querySelector('.chapter-title-en'),
+              titleBn: ch.titleBn,
+              titleEn: ch.titleEn,
+              originalNum: chapterNum,
+              numStr,
+              numPadded,
+              combinedSearchText: `${subjectNormalized} ${chapterNormalized}`
+            });
+          });
+
+          panel.appendChild(chaptersList);
+
+          // Bottom "বন্ধ করুন" Button matching subject logo color
+          const closeFooter = document.createElement('div');
+          closeFooter.className = "mt-3.5 pt-3 border-t border-[#2b3b59] flex justify-center";
+          closeFooter.innerHTML = `
+            <button
+              type="button"
+              data-close-subject="${subject.id}"
+              class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#1d2940] hover:bg-[#23314d] border border-[#2b3b59] ${subject.theme.closeBtn} text-[#cbd5e1] hover:text-[#f1f5f9] text-xs sm:text-sm font-semibold transition-colors flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+            >
+              <i class="fa-solid fa-chevron-up text-xs ${subject.theme.closeIcon}" aria-hidden="true"></i>
+              <span>বন্ধ করুন</span>
+            </button>
+          `;
+
+          panel.appendChild(closeFooter);
+          card.appendChild(panel);
+          frag.appendChild(card);
+
+          subjectRefs.set(subject.id, {
+            id: subject.id,
+            nameBn: subject.nameBn,
+            nameEn: subject.nameEn,
+            card,
+            headerBtn,
+            titleBnEl: headerBtn.querySelector('.subject-title-bn'),
+            titleEnEl: headerBtn.querySelector('.subject-title-en'),
+            chevronWrap: headerBtn.querySelector('.subject-chevron-wrap'),
+            panel,
+            closeFooter,
+            theme: subject.theme,
+            subjectSearchText: subjectNormalized,
+            chapterRows
+          });
+        });
+
+        dom.subjectsContainer.replaceChildren(frag);
+      }
+
+      /**
+       * Search Bar Controls UI Synchronization
+       */
+      function updateSearchControlsUi() {
+        const hasRawText = dom.searchInput.value.length > 0;
+        const hasQuery = appState.searchQuery.trim().length > 0;
+        const total = appState.searchMatches.length;
+
+        dom.searchInputBox.classList.toggle('has-query', hasRawText);
+        dom.searchClearBtn.classList.toggle('visible', hasRawText);
+        dom.searchKbdHint.classList.toggle('is-hidden', hasRawText);
+        dom.searchNavControls.classList.toggle('visible', hasRawText);
+
+        if (hasRawText) {
+          dom.searchBarWrapper.classList.remove('search-hidden');
+        }
+
+        if (!hasQuery || total === 0) {
+          dom.searchMatchCount.textContent = '0/0';
+          dom.searchMatchCount.classList.add('is-zero');
+          dom.searchPrevBtn.disabled = true;
+          dom.searchNextBtn.disabled = true;
+        } else {
+          const displayIdx = appState.activeMatchIndex >= 0 ? appState.activeMatchIndex + 1 : 1;
+          dom.searchMatchCount.textContent = `${displayIdx}/${total}`;
+          dom.searchMatchCount.classList.remove('is-zero');
+          dom.searchPrevBtn.disabled = false;
+          dom.searchNextBtn.disabled = false;
+        }
+      }
+
+      /**
+       * Activates a specific search match <mark> with wrap-around & optional smooth scroll
+       */
+      function activateSearchMatch(index, shouldScroll = true) {
+        const matches = appState.searchMatches;
+        const total = matches.length;
+        if (!total) {
+          appState.activeMatchIndex = -1;
+          updateSearchControlsUi();
+          return;
+        }
+
+        if (appState.activeMatchIndex >= 0 && matches[appState.activeMatchIndex]) {
+          matches[appState.activeMatchIndex].classList.remove('active-match');
+        }
+
+        const wrappedIdx = ((index % total) + total) % total;
+        appState.activeMatchIndex = wrappedIdx;
+        const targetEl = matches[wrappedIdx];
+        targetEl.classList.add('active-match');
+        updateSearchControlsUi();
+
+        if (shouldScroll) {
+          dom.searchBarWrapper.classList.remove('search-hidden');
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+        }
+      }
+
+      /**
+       * Collects all visible <mark class="search-hl"> inside visible subject headers & chapter rows
+       */
+      function collectSearchMatches(autoScrollFirst = false) {
+        const hasQuery = appState.searchQuery.trim().length > 0;
+        if (!hasQuery) {
+          appState.searchMatches = [];
+          appState.activeMatchIndex = -1;
+          updateSearchControlsUi();
+          return;
+        }
+
+        const allMarks = Array.from(
+          dom.subjectsContainer.querySelectorAll('mark.search-hl')
+        ).filter((mark) => !mark.closest('.hidden') && !mark.closest('[hidden]'));
+
+        allMarks.forEach((m) => m.classList.remove('active-match'));
+
+        appState.searchMatches = allMarks;
+        if (allMarks.length > 0) {
+          activateSearchMatch(0, autoScrollFirst);
+        } else {
+          appState.activeMatchIndex = -1;
+          updateSearchControlsUi();
+        }
+      }
+
+      /**
+       * Steps forward (+1) or backward (-1) across all active search matches
+       */
+      function navigateSearchMatch(delta) {
+        const total = appState.searchMatches.length;
+        if (!total) return;
+        const current = appState.activeMatchIndex >= 0 ? appState.activeMatchIndex : 0;
+        activateSearchMatch(current + delta, true);
+      }
+
+      /**
+       * Accurate Multi-Token Search Filter with NFC & Bengali/English Digit Normalization
+       */
+      function applySearchFilter(autoScrollFirst = false) {
+        const rawQuery = appState.searchQuery;
+        const normalizedQuery = normalizeForSearch(rawQuery);
+        const tokens = normalizedQuery ? normalizedQuery.split(' ').filter(Boolean) : [];
+        const isSearching = tokens.length > 0;
+        const highlightRegex = isSearching ? buildHighlightRegex(tokens) : null;
+
+        let visibleSubjects = 0;
+
+        subjectRefs.forEach((ref) => {
+          const subjectMatchesAll = isSearching && tokens.every((tok) => ref.subjectSearchText.includes(tok));
+          let matchedCount = 0;
+
+          for (let i = 0; i < ref.chapterRows.length; i++) {
+            const row = ref.chapterRows[i];
+            let isMatch = true;
+
+            if (isSearching && !subjectMatchesAll) {
+              isMatch = tokens.every((tok) => {
+                if (/^\d+$/.test(tok)) {
+                  return (
+                    row.combinedSearchText.includes(tok) ||
+                    row.numStr === tok ||
+                    row.numPadded === tok
+                  );
+                }
+                return row.combinedSearchText.includes(tok);
+              });
+            }
+
+            if (isMatch) {
+              row.el.classList.remove('hidden');
+              matchedCount++;
+              row.numEl.textContent = isSearching ? matchedCount : row.originalNum;
+
+              if (highlightRegex) {
+                row.titleBnEl.innerHTML = renderHighlightedHtml(row.titleBn, highlightRegex);
+                row.titleEnEl.innerHTML = renderHighlightedHtml(row.titleEn, highlightRegex);
+              } else {
+                row.titleBnEl.textContent = row.titleBn;
+                row.titleEnEl.textContent = row.titleEn;
+              }
+            } else {
+              row.el.classList.add('hidden');
+              // Ensure hidden rows carry clean unhighlighted text
+              row.titleBnEl.textContent = row.titleBn;
+              row.titleEnEl.textContent = row.titleEn;
+            }
+          }
+
+          if (highlightRegex) {
+            ref.titleBnEl.innerHTML = renderHighlightedHtml(ref.nameBn, highlightRegex);
+            ref.titleEnEl.innerHTML = renderHighlightedHtml(ref.nameEn, highlightRegex);
+          } else {
+            ref.titleBnEl.textContent = ref.nameBn;
+            ref.titleEnEl.textContent = ref.nameEn;
+          }
+
+          if (isSearching && matchedCount === 0) {
+            ref.card.classList.add('hidden');
+          } else {
+            ref.card.classList.remove('hidden');
+            visibleSubjects++;
+
+            if (isSearching) {
+              setCardExpandedState(ref.id, true);
+              ref.closeFooter.classList.add('hidden');
+            } else {
+              setCardExpandedState(ref.id, appState.expandedSubjectId === ref.id);
+              ref.closeFooter.classList.remove('hidden');
+            }
+          }
+        });
+
+        dom.emptySearch.classList.toggle('hidden', visibleSubjects > 0);
+        collectSearchMatches(autoScrollFirst);
+      }
+
+      /**
+       * Clears search input cleanly and restores unhighlighted accordion state
+       */
+      function clearSearch(shouldFocus = false) {
+        dom.searchInput.value = '';
+        appState.searchQuery = '';
+        appState.searchMatches = [];
+        appState.activeMatchIndex = -1;
+        applySearchFilter(false);
+        if (shouldFocus) {
+          dom.searchInput.focus();
+        }
+      }
+
+      /**
+       * Event Delegation, Keyboard Shortcuts, pageshow Restore & Smart Scroll Auto-Hide Controller
+       */
+      function initListeners() {
+        dom.btnMenu.addEventListener('click', openDrawer);
+        dom.btnMenuClose.addEventListener('click', () => closeDrawer(true));
+        dom.menuBackdrop.addEventListener('click', () => closeDrawer(true));
+
+        // Restore persisted expanded subject on browser back/forward (bfcache) or navigation return
+        window.addEventListener('pageshow', () => {
+          if (dom.searchInput && dom.searchInput.value !== appState.searchQuery) {
+            appState.searchQuery = dom.searchInput.value;
+          }
+          if (appState.searchQuery.trim() === '') {
+            restoreExpandedSubjectFromStorage();
+          }
+        });
+
+        // Global keyboard shortcuts: Escape (drawer / search) and '/' (focus search)
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            if (appState.isDrawerOpen) {
+              closeDrawer(true);
+              return;
+            }
+            if (dom.searchInput.value.length > 0) {
+              clearSearch(document.activeElement === dom.searchInput);
+            }
+            return;
+          }
+
+          if (
+            e.key === '/' &&
+            !appState.isDrawerOpen &&
+            document.activeElement !== dom.searchInput &&
+            !['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)
+          ) {
+            e.preventDefault();
+            dom.searchBarWrapper.classList.remove('search-hidden');
+            dom.searchInput.focus();
+            dom.searchInput.select();
+          }
+        });
+
+        // Single delegated click listener for Slide Drawer subject jumps (persists expanded subject)
+        dom.drawerSubjectsList.addEventListener('click', (e) => {
+          const btn = e.target.closest('button[data-drawer-subject-id]');
+          if (!btn) return;
+          const subjectId = btn.dataset.drawerSubjectId;
+          closeDrawer(false);
+
+          if (appState.searchQuery.trim() !== '') {
+            clearSearch(false);
+          }
+
+          if (appState.expandedSubjectId && appState.expandedSubjectId !== subjectId) {
+            setCardExpandedState(appState.expandedSubjectId, false);
+          }
+          appState.expandedSubjectId = subjectId;
+          setCardExpandedState(subjectId, true);
+          saveExpandedSubject(subjectId);
+
+          const ref = subjectRefs.get(subjectId);
+          if (ref) {
+            dom.searchBarWrapper.classList.remove('search-hidden');
+            const targetY = window.scrollY + ref.card.getBoundingClientRect().top - getStickyScrollOffset();
+            window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+          }
+        });
+
+        // Single delegated click listener for Chapter Links, Close Buttons & Subject Headers
+        dom.subjectsContainer.addEventListener('click', (e) => {
+          // Persist parent subject whenever ANY chapter link is clicked (including during search)
+          const chapterLink = e.target.closest('a[data-chapter-subject]');
+          if (chapterLink) {
+            const subjectId = chapterLink.dataset.chapterSubject;
+            if (subjectId && subjectRefs.has(subjectId)) {
+              appState.expandedSubjectId = subjectId;
+              saveExpandedSubject(subjectId);
+            }
+            return;
+          }
+
+          const closeBtn = e.target.closest('button[data-close-subject]');
+          if (closeBtn) {
+            e.stopPropagation();
+            closeSubjectAndScrollToCard(closeBtn.dataset.closeSubject);
+            return;
+          }
+
+          const headerBtn = e.target.closest('[data-toggle-subject]');
+          if (headerBtn) {
+            toggleSubject(headerBtn.dataset.toggleSubject);
+          }
+        });
+
+        // Also persist parent subject on middle-click (open chapter in new tab)
+        dom.subjectsContainer.addEventListener('auxclick', (e) => {
+          if (e.button !== 1) return;
+          const chapterLink = e.target.closest('a[data-chapter-subject]');
+          if (chapterLink) {
+            const subjectId = chapterLink.dataset.chapterSubject;
+            if (subjectId && subjectRefs.has(subjectId)) {
+              appState.expandedSubjectId = subjectId;
+              saveExpandedSubject(subjectId);
+            }
+          }
+        });
+
+        dom.subjectsContainer.addEventListener('keydown', (e) => {
+          if (e.key !== 'Enter' && e.key !== ' ') return;
+          const headerBtn = e.target.closest('[data-toggle-subject]');
+          if (headerBtn) {
+            e.preventDefault();
+            toggleSubject(headerBtn.dataset.toggleSubject);
+          }
+        });
+
+        // Search Input with rAF scheduling + Enter / Shift+Enter / Escape navigation
+        let searchRaf = 0;
+        dom.searchInput.addEventListener('input', (e) => {
+          appState.searchQuery = e.target.value;
+          updateSearchControlsUi();
+          cancelAnimationFrame(searchRaf);
+          searchRaf = requestAnimationFrame(() => applySearchFilter(false));
+        });
+
+        dom.searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            cancelAnimationFrame(searchRaf);
+            if (dom.searchInput.value !== appState.searchQuery) {
+              appState.searchQuery = dom.searchInput.value;
+              applySearchFilter(true);
+            } else {
+              navigateSearchMatch(e.shiftKey ? -1 : 1);
+            }
+          } else if (e.key === 'Escape' && dom.searchInput.value.length > 0) {
+            e.stopPropagation();
+            clearSearch(true);
+          }
+        });
+
+        dom.searchPrevBtn.addEventListener('click', () => navigateSearchMatch(-1));
+        dom.searchNextBtn.addEventListener('click', () => navigateSearchMatch(1));
+        dom.searchClearBtn.addEventListener('click', () => clearSearch(true));
+        dom.btnResetSearch.addEventListener('click', () => clearSearch(true));
+
+        // Smart Scroll Auto-Hide Controller
+        // Never hides when search input has text, is focused, or near top (<= 40px)
+        let lastScrollY = window.scrollY;
+        let scrollTicking = false;
+        window.addEventListener('scroll', () => {
+          if (scrollTicking) return;
+          scrollTicking = true;
+          requestAnimationFrame(() => {
+            const currentY = window.scrollY;
+            const hasSearch = dom.searchInput.value.trim().length > 0 || appState.searchQuery.trim().length > 0;
+            const isSearchFocused = document.activeElement === dom.searchInput;
+
+            if (hasSearch || isSearchFocused || currentY <= 40) {
+              dom.searchBarWrapper.classList.remove('search-hidden');
+            } else if (currentY > lastScrollY + 7) {
+              dom.searchBarWrapper.classList.add('search-hidden');
+            } else if (currentY < lastScrollY - 5) {
+              dom.searchBarWrapper.classList.remove('search-hidden');
+            }
+
+            lastScrollY = currentY;
+            scrollTicking = false;
+          });
+        }, { passive: true });
+      }
+
+      /**
+       * Initialize Application Safely & Restore Persisted Expanded Subject on First Paint
+       */
+      function initialize() {
+        try {
+          buildDrawerMenu();
+          buildSubjectsDOM();
+          restoreExpandedSubjectFromStorage();
+          initListeners();
+          updateSearchControlsUi();
+        } catch (err) {
+          console.error('Initialization error:', err);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initialize);
+      } else {
+        initialize();
+      }
+    })();
+  </script>
+</body>
+</html>
