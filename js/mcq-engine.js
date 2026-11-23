@@ -1420,6 +1420,9 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
+    dom.backToTopBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
     // Debounced Window Resize Handler for Responsive Table Fitting
     let resizeRaf = null;
